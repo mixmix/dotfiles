@@ -133,3 +133,7 @@ set clipboard=unnamedplus
 
 " Preserve indentation while pasting text from the OS X clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+
+" add tabbing btwn splits
+noremap <tab> <c-w><c-w> 
+
