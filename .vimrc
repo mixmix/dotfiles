@@ -16,6 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 " UI
 Plugin 'altercation/vim-colors-solarized'
 "Plugin 'tomasr/molokai'
+"Plugin 'flazz/vim-colorschemes'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 
@@ -24,13 +25,17 @@ Plugin 'scrooloose/nerdcommenter'
 
 "syntax related
 Plugin 'scrooloose/syntastic'
-Plugin 'kchmck/vim-coffee-script'
+"Plugin 'kchmck/vim-coffee-script'
 Plugin 'slim-template/vim-slim'
 
-"navigation
+"navigation-files
 Plugin 'wincent/Command-T'
 Plugin 'scrooloose/nerdtree'
 Plugin 'christoomey/vim-tmux-navigator'
+
+"navigation-text
+Plugin 'easymotion/vim-easymotion'
+"Plugin 'justinmk/vim-sneak'
 
 "ruby
 Plugin 'vim-ruby/vim-ruby'
@@ -102,6 +107,9 @@ nmap <leader>w :bd<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
+
+" Vim-Sneak
+"let g:sneak#s_next = 1
 
 " auto open NERDTree if there's no file passed : 
 function! StartUp()

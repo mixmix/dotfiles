@@ -5,7 +5,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+#ZSH_THEME="agnoster"
+ZSH_THEME="amuse"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -117,9 +119,9 @@ alias hipcast="~/projects/scripts/hipchat_address_pusher.sh"
 alias useful="cat /home/mixmix/Desktop/useful\ commands | less"
 alias vuseful="vim /home/mixmix/Desktop/useful\ commands"
 
-alias loom='cd ~/projects/loomio'
-alias pw='cd ~/projects/patchwork'
-alias pwe='cd ~/projects/patchwork-electron'
+alias loom='cd ~/projects/LOOMIO/loomio'
+alias pw='cd ~/projects/SSBC/patchwork'
+alias pwe='cd ~/projects/SSBC/patchwork-electron'
 alias eda='cd ~/projects/EDA'
 alias ea='cd ~/projects/WORK/gst_return'
 alias wp='~/projects/WORK/web_punch'
