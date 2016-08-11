@@ -7,7 +7,9 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
-ZSH_THEME="amuse"
+#ZSH_THEME="amuse"
+ZSH_THEME="gallifrey-mix"
+#ZSH_THEME="random"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,7 +55,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/mix/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -123,10 +125,12 @@ alias loom='cd ~/projects/LOOMIO/loomio'
 alias pw='cd ~/projects/SSBC/patchwork'
 alias pwe='cd ~/projects/SSBC/patchwork-electron'
 alias eda='cd ~/projects/EDA'
+alias ker='cd ~/projects/EDA/KERERU'
+alias kerb='cd ~/projects/EDA/KERERU/kereru-book'
 alias ea='cd ~/projects/WORK/gst_return'
 alias wp='~/projects/WORK/web_punch'
 alias cft='~/projects/scripts/customer_feedback_tool_update.sh'
-alias tupdate='loom && gcom && gpom && ~/projects/i18n-tools/update.sh'
+alias tupdate='loom && gcom && gpom && ~/projects/LOOMIO/i18n-tools/update.sh'
 alias sp='cd ~/projects/WORK/spanner_planner'
 alias ns='cd ~/projects/LEARNING/nodeschool'
 
@@ -140,6 +144,7 @@ alias gfo="git fetch origin"
 alias gg="git log --pretty=oneline --abbrev-commit --graph --decorate"
 alias gga="git log --pretty=oneline --abbrev-commit --graph --decorate --all"
 alias gpom="git pull origin master"
+alias gpsm="git pull source master"
 alias gpos="git pull origin staging"
 alias gdom="git diff origin/master"
 alias gdos="git diff origin/staging"

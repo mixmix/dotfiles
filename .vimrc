@@ -14,9 +14,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " UI
-Plugin 'altercation/vim-colors-solarized'
-"Plugin 'tomasr/molokai'
-"Plugin 'flazz/vim-colorschemes'
+"Plugin 'altercation/vim-colors-solarized'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 
@@ -25,11 +24,13 @@ Plugin 'scrooloose/nerdcommenter'
 
 "syntax related
 Plugin 'scrooloose/syntastic'
+Plugin 'sheerun/vim-polyglot'
+"Plugin 'pangloss/vim-javascript'
 "Plugin 'kchmck/vim-coffee-script'
 Plugin 'slim-template/vim-slim'
 
 "navigation-files
-Plugin 'wincent/Command-T'
+Plugin 'wincent/command-t'
 Plugin 'scrooloose/nerdtree'
 Plugin 'christoomey/vim-tmux-navigator'
 
@@ -62,10 +63,24 @@ filetype plugin indent on    " required
 
 
 
-set background=dark
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
+"colorscheme spacegray
+"colorscheme mango
+"colorscheme beekai
+"colorscheme maui
+
+"set background=light
+"colorscheme hemisu
+"colorscheme leya
+colorscheme fx
+"colorscheme sol-term
+"colorscheme mango
+"colorscheme beachcomber
+
 set t_Co=16
-let g:solarized_termcolors=16 "note 16 bit looks great but generate minor problems in vim+tmux 
+"let g:solarized_termcolors=16 "note 16 bit looks great but generate minor problems in vim+tmux 
+
 "set t_Co=256
 "let g:solarized_termcolors=256
 "let g:solarized_termtrans = 1
