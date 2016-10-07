@@ -118,6 +118,9 @@ let mapleader = ","
 " close a buffer
 nmap <leader>w :bd<CR>
 
+" map jj to be equivalent to Esc
+imap jj <Esc>
+
 " NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1

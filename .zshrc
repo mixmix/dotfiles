@@ -132,6 +132,8 @@ alias wp='~/projects/WORK/web_punch'
 alias cft='~/projects/scripts/customer_feedback_tool_update.sh'
 alias tupdate='loom && gcom && gpom && ~/projects/LOOMIO/i18n-tools/update.sh'
 alias sp='cd ~/projects/WORK/spanner_planner'
+alias aef='cd ~/projects/WORK/aef/accredited-employer-form'
+alias aefd='cd ~/projects/WORK/aef'
 alias ns='cd ~/projects/LEARNING/nodeschool'
 
 alias gs="git status"
@@ -141,6 +143,7 @@ alias gco="git checkout"
 alias gcom="git checkout master"
 alias gcos="git checkout staging"
 alias gfo="git fetch origin"
+alias gfs="git fetch ssb"
 alias gg="git log --pretty=oneline --abbrev-commit --graph --decorate"
 alias gga="git log --pretty=oneline --abbrev-commit --graph --decorate --all"
 alias gpom="git pull origin master"

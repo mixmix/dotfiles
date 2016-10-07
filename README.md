@@ -4,7 +4,8 @@
 - Konsole
 - vim.gtk3 (debian package)
 
-## Useful Commands
+
+## Setup
 
 - Vim
   - `update-alternatives --list vim` check which version of vim you have installed
@@ -12,6 +13,11 @@
   - Commant-T ruby versin: 
     - `~/.vim/bundle/Command-T/ruby/command-t`
     - something like : rbenv install new ruby, `ruby extconf.rb`, `make`
+
+- Kubuntu 
+  - remap caps to esc
+  - drop window menu / title bars
+  - multiple desktops
 
 
 ## Resources:
