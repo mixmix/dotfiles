@@ -96,6 +96,8 @@ alias firefox-dev="/opt/firefox/firefox"
 alias tmux="TERM=xterm-256color tmux"
 alias mygrep="grep -rinsI"
 alias magic="echo '\n\e[37m  (ﾉ´ヮ´)ﾉ*:･ﾟ✧\e[0m\n'"
+# nmcli d wifi
+# nmcli d wifi connect NETGEAR81-5G password thoughtfultrumpet153
 
 # rake aliases
 alias rdm="rake db:migrate db:test:prepare"
@@ -148,7 +150,7 @@ alias gfs="git fetch ssb"
 alias gg="git log --pretty=oneline --abbrev-commit --graph --decorate"
 alias gga="git log --pretty=oneline --abbrev-commit --graph --decorate --all"
 alias gpom="git pull origin master"
-alias gpsm="git pull source master"
+alias gpsm="git pull ssb master"
 alias gpos="git pull origin staging"
 alias gdom="git diff origin/master"
 alias gdos="git diff origin/staging"
@@ -186,6 +188,8 @@ bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward 
 
+# remap scrolling and caps for i3
+xmodmap projects/dotfiles/.xmodaprc
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

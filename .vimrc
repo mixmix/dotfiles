@@ -61,6 +61,13 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" # NERDCommenter
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
 
 
 "set background=dark
