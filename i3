@@ -43,6 +43,12 @@ bindsym $mod+Shift+grave exec google-chrome
 bindcode 233 exec xbacklight -inc 10
 bindcode 232 exec xbacklight -dec 10
 
+#volume 
+bindcode 123 exec amixer -D pulse sset Master 10%+
+bindcode 122 exec amixer -D pulse sset Master 10%-
+# mute 
+bindcode 121 exec amixer -D pulse set Master 1+ toggle
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -180,14 +186,9 @@ mode "$mode_presentation_screen" {
 # Hide edge borders
 hide_edge_borders both
 
-# (original)
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#         status_command i3status
-#         tray_output primary
-# }
-#
+# add background
+exec --no-startup-id feh --bg-fill ~/Pictures/ghost_nebula.jpg
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -207,6 +208,12 @@ bar {
 	# position top
 	# Using custom i3status.conf
 	# status_command i3status -c ~/.i3/i3status.conf
-	status_command i3status 
+	status_command i3status -c ~/.config/i3status/config
+	# status_command i3status 
   tray_output primary
 }
+
+# i3-gaps
+
+# for_window [class="^.*"] border pixel 0
+# smart_gaps on

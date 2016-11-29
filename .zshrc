@@ -127,6 +127,7 @@ alias loom='cd ~/projects/LOOMIO/loomio'
 alias pw='cd ~/projects/SSBC/patchwork'
 alias pwe='cd ~/projects/SSBC/patchwork-electron'
 alias eda='cd ~/projects/EDA'
+alias weka='cd ~/projects/EDA/weka-2016'
 alias ssb='cd ~/projects/SSBC'
 alias ker='cd ~/projects/EDA/KERERU'
 alias kerb='cd ~/projects/EDA/KERERU/kereru-book'
@@ -251,3 +252,4 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
+#
