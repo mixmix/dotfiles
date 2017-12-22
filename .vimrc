@@ -10,37 +10,37 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+  " let Vundle manage Vundle, required
+  Plugin 'VundleVim/Vundle.vim'
 
-" UI
-"Plugin 'altercation/vim-colors-solarized'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-fugitive'
+  " UI
+  "Plugin 'altercation/vim-colors-solarized'
+  Plugin 'flazz/vim-colorschemes'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'tpope/vim-fugitive'
 
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdcommenter'
+  Plugin 'airblade/vim-gitgutter'
+  Plugin 'scrooloose/nerdcommenter'
 
-"syntax related
-Plugin 'scrooloose/syntastic'
-Plugin 'sheerun/vim-polyglot'
-"Plugin 'pangloss/vim-javascript'
-"Plugin 'kchmck/vim-coffee-script'
-Plugin 'slim-template/vim-slim'
+  "syntax related
+  Plugin 'scrooloose/syntastic'
+  Plugin 'sheerun/vim-polyglot'
+  "Plugin 'pangloss/vim-javascript'
+  "Plugin 'kchmck/vim-coffee-script'
+  Plugin 'slim-template/vim-slim'
 
-"navigation-files
-Plugin 'wincent/command-t'
-Plugin 'scrooloose/nerdtree'
-Plugin 'christoomey/vim-tmux-navigator'
+  "navigation-files
+  Plugin 'wincent/command-t'
+  Plugin 'scrooloose/nerdtree'
+  " Plugin 'christoomey/vim-tmux-navigator'
 
-"navigation-text
-Plugin 'easymotion/vim-easymotion'
-"Plugin 'justinmk/vim-sneak'
+  "navigation-text
+  Plugin 'easymotion/vim-easymotion'
+  "Plugin 'justinmk/vim-sneak'
 
-"ruby
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-rails'
+  "ruby
+  Plugin 'vim-ruby/vim-ruby'
+  Plugin 'tpope/vim-rails'
 
 call vundle#end()            " required
 
@@ -151,9 +151,17 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-"buffer  navigattion
+" run the current file with node 
+nmap 1 :!clear && node %<CR>
+" run the npm test command
+nmap ` :!clear && npm test<CR>
+
+"buffer  navigation
 map <C-right> :bn<CR>
+map <C-l> :bn<CR>
+
 map <C-left> :bp<CR>
+map <C-h> :bp<CR>
 
 " Yank text to the clipboard
 " you need to install a vim with +xterm_clipboard to ensure you can copy to

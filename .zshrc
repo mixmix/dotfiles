@@ -82,8 +82,10 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+
+# disable rbenv for the moment
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 
 # env vars
@@ -98,6 +100,8 @@ alias mygrep="grep -rinsI"
 alias magic="echo '\n\e[37m  (ﾉ´ヮ´)ﾉ*:･ﾟ✧\e[0m\n'"
 # nmcli d wifi
 # nmcli d wifi connect NETGEAR81-5G password thoughtfultrumpet153
+# nmcli con
+# wifi-menu -o
 
 # rake aliases
 alias rdm="rake db:migrate db:test:prepare"
@@ -128,6 +132,7 @@ alias pw='cd ~/projects/SSBC/patchwork'
 alias pwe='cd ~/projects/SSBC/patchwork-electron'
 alias eda='cd ~/projects/EDA'
 alias weka='cd ~/projects/EDA/weka-2016'
+alias kaka='cd ~/projects/EDA/kakapo-2017'
 alias ssb='cd ~/projects/SSBC'
 alias ker='cd ~/projects/EDA/KERERU'
 alias kerb='cd ~/projects/EDA/KERERU/kereru-book'
@@ -195,6 +200,11 @@ xmodmap projects/dotfiles/.xmodaprc
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+### Android Studio ###
+
+export ANDROID_HOME=${HOME}/Android/Sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 ### Node section ###
 
@@ -253,3 +263,8 @@ elif type compctl &>/dev/null; then
 fi
 ###-end-npm-completion-###
 #
+# RBENV setup
+#
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+

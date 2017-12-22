@@ -34,18 +34,19 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # start a firefox
-bindsym $mod+grave exec firefox
+# bindsym $mod+grave exec firefox
+bindsym $mod+grave exec vimb
 
 # start a chrome
 bindsym $mod+Shift+grave exec google-chrome
 
 #brightness
-bindcode 233 exec xbacklight -inc 10
-bindcode 232 exec xbacklight -dec 10
+bindcode 233 exec xbacklight -inc 5
+bindcode 232 exec xbacklight -dec 5
 
 #volume 
-bindcode 123 exec amixer -D pulse sset Master 10%+
-bindcode 122 exec amixer -D pulse sset Master 10%-
+bindcode 123 exec amixer -D pulse sset Master 5%+
+bindcode 122 exec amixer -D pulse sset Master 5%-
 # mute 
 bindcode 121 exec amixer -D pulse set Master 1+ toggle
 
@@ -137,7 +138,8 @@ bindsym $mod+Shift+8 move container to workspace 8
 # bindsym $mod+Shift+0 move container to workspace 10
 
 # lock the screen
-bindsym $mod+Shift+x exec i3lock
+bindsym $mod+Shift+x exec i3lock -i ~/desktop_2.png
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -147,26 +149,26 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+  # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+  # Pressing left will shrink the window’s width.
+  # Pressing right will grow the window’s width.
+  # Pressing up will shrink the window’s height.
+  # Pressing down will grow the window’s height.
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+  # same bindings, but for the arrow keys
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -177,21 +179,37 @@ set $mode_presentation_screen Use HDMI[1] or [2]
 bindsym $mod+p mode "$mode_presentation_screen" 
 
 mode "$mode_presentation_screen" {
-  bindsym 1 exec "xrandr --output HDMI1 --auto --same-as eDP1"
+  bindsym 1 exec "xrandr --output HDMI1 --auto --same-as eDP1 --mode 1920x1080"
   bindsym 2 exec "xrandr --output HDMI2 --auto --same-as eDP1"
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
 
-# Hide edge borders
+# hide_edge_borders both
 hide_edge_borders both
 
+# for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 1
+
+# https://i3wm.org/docs/userguide.html#_changing_colors
+# class                 border  backgr. text    indicator child_border
+# client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused          #000000  #285577 #ffffff #000000   #285577
+
 # add background
-exec --no-startup-id feh --bg-fill ~/Pictures/ghost_nebula.jpg
+exec --no-startup-id feh --bg-fill ~/desktop_2.png
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+	# i3bar position
+	# position top
+	# Using custom i3status.conf
+	# status_command i3status -c ~/.i3/i3status.conf
+	status_command i3status -c ~/.config/i3status/config
+	# status_command i3status
+  # tray_output primary
+
 	colors {
 		# Whole color settings
 		background #000000
@@ -204,16 +222,14 @@ bar {
 		inactive_workspace #333333 #222222 #888888
 		urgent_workspace   #aa0000 #990000 #ffffff
 	}
-	# i3bar position
-	# position top
-	# Using custom i3status.conf
-	# status_command i3status -c ~/.i3/i3status.conf
-	status_command i3status -c ~/.config/i3status/config
-	# status_command i3status 
-  tray_output primary
 }
+
+client.focused #81a2be #00aaaa #1d1f21 #282a2e
+# client.focused #81a2be #81a2be #1d1f21 #282a2e # don's chill setting
+client.focused_inactive #373b41 #373b41 #969896 #282a2e
+client.unfocused #282a2e #282a2e #969896 #282a2e
+client.urgent #373b41 #cc6666 #ffffff #cc6666
 
 # i3-gaps
 
-# for_window [class="^.*"] border pixel 0
 # smart_gaps on
