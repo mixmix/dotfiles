@@ -1,18 +1,22 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+  export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="agnoster"
-#ZSH_THEME="amuse"
-ZSH_THEME="gallifrey-mix"
-#ZSH_THEME="random"
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="amuse"
+# ZSH_THEME="gallifrey-mix"
+ZSH_THEME="gallifrey"
+# ZSH_THEME="random"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -55,7 +59,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/mix/bin"
+# export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/mix/bin"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -104,73 +109,49 @@ alias magic="echo '\n\e[37m  (ﾉ´ヮ´)ﾉ*:･ﾟ✧\e[0m\n'"
 # wifi-menu -o
 
 # rake aliases
-alias rdm="rake db:migrate db:test:prepare"
-alias rdrb='bundle exec rake db:rollback'
-alias zrdm="zeus rake db:migrate db:test:prepare"
-alias zrr="zeus rake routes"
-alias zrrg="zeus rake routes | grep"
-alias rrg="rake routes | grep"
-alias brr="bin/rake routes"
-alias brrg="bin/rake routes | grep"
-
+# alias rdm="rake db:migrate db:test:prepare"
+# alias rdrb='bundle exec rake db:rollback'
+# alias zrdm="zeus rake db:migrate db:test:prepare"
+# alias zrr="zeus rake routes"
+# alias zrrg="zeus rake routes | grep"
+# alias rrg="rake routes | grep"
+# alias brr="bin/rake routes"
+# alias brrg="bin/rake routes | grep"
 
 # contributor_grapher envs
 
-export USER_AGENT=www.github.com/s01us
-export TARGET_REPO=loomio/loomio
-export CUSTOM_HEADING='commited to LOOMIO this month'
+# export USER_AGENT=www.github.com/s01us
+# export TARGET_REPO=loomio/loomio
+# export CUSTOM_HEADING='commited to LOOMIO this month'
 
-#loomio alias
-alias zc="zeus cucumber"
-alias hipcast="~/projects/scripts/hipchat_address_pusher.sh"
 
-alias useful="cat /home/mixmix/Desktop/useful\ commands | less"
-alias vuseful="vim /home/mixmix/Desktop/useful\ commands"
+# alias useful="cat /home/mixmix/Desktop/useful\ commands | less"
+# alias vuseful="vim /home/mixmix/Desktop/useful\ commands"
 
-alias loom='cd ~/projects/LOOMIO/loomio'
-alias pw='cd ~/projects/SSBC/patchwork'
-alias pwe='cd ~/projects/SSBC/patchwork-electron'
-alias eda='cd ~/projects/EDA'
-alias weka='cd ~/projects/EDA/weka-2016'
-alias kaka='cd ~/projects/EDA/kakapo-2017'
 alias ssb='cd ~/projects/SSBC'
-alias ker='cd ~/projects/EDA/KERERU'
-alias kerb='cd ~/projects/EDA/KERERU/kereru-book'
-alias ea='cd ~/projects/WORK/gst_return'
-alias wp='~/projects/WORK/web_punch'
-alias cft='~/projects/scripts/customer_feedback_tool_update.sh'
-alias tupdate='loom && gcom && gpom && ~/projects/LOOMIO/i18n-tools/update.sh'
-alias sp='cd ~/projects/WORK/spanner_planner'
-alias aef='cd ~/projects/WORK/aef/accredited-employer-form'
-alias aefd='cd ~/projects/WORK/aef'
-alias ns='cd ~/projects/LEARNING/nodeschool'
+alias pb='cd ~/projects/SSBC/patchbay'
+alias pw='cd ~/projects/SSBC/patchwork'
+alias pz='cd ~/projects/protozoa'
+alias tt='cd ~/projects/protozoa/ticktack'
+# alias eda='cd ~/projects/EDA'
+# alias loom='cd ~/projects/LOOMIO/loomio'
+# alias tupdate='loom && gcom && gpom && ~/projects/LOOMIO/i18n-tools/update.sh'
 
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit"
 alias gco="git checkout"
 alias gcom="git checkout master"
-alias gcos="git checkout staging"
+# alias gcos="git checkout staging"
 alias gfo="git fetch origin"
 alias gfs="git fetch ssb"
 alias gg="git log --pretty=oneline --abbrev-commit --graph --decorate"
 alias gga="git log --pretty=oneline --abbrev-commit --graph --decorate --all"
 alias gpom="git pull origin master"
 alias gpsm="git pull ssb master"
-alias gpos="git pull origin staging"
 alias gdom="git diff origin/master"
-alias gdos="git diff origin/staging"
-alias gdomr="git diff origin/master --name-only | grep _spec.rb | xargs rspec -fdoc"
-alias gdosr="git diff origin/staging --name-only | grep _spec.rb | xargs rspec -fdoc"
 alias gtrash="git status --short | xargs trash"
-alias gres="git diff origin/master --name-only | xargs sublime"
-alias gdres="git diff --name-only | xargs sublime"
 alias gfire="git push origin HEAD:${USER}-fire -f"
-
-#alias patchwork="cd ~/projects/OTHERS_APPS/patchwork && npm start"
-
-alias dokkugeorge='ssh -t dokku@app.georgecloonio.net'
-alias dokkumixio='ssh -t dokku@mixio.dinotech.co.nz'
 
 squash-branch() {
   name=`git rev-parse --abbrev-ref HEAD`
@@ -194,25 +175,22 @@ bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward 
 
-# remap scrolling and caps for i3
-xmodmap projects/dotfiles/.xmodaprc
-
-### Added by the Heroku Toolbelt
+### Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Android Studio ###
-
-export ANDROID_HOME=${HOME}/Android/Sdk
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+# export ANDROID_HOME=${HOME}/Android/Sdk
+# export PATH=${PATH}:${ANDROID_HOME}/tools
+# export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 ### Node section ###
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source ~/.nvm/nvm.sh
+
 ###-begin-npm-completion-###
-#
 # npm command completion script
-#
 # Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
 # Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
 #
@@ -262,9 +240,9 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
-#
+
+
 # RBENV setup
-#
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 

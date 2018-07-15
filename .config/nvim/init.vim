@@ -1,4 +1,4 @@
-" reference : http://www.drbunsen.org/the-text-triumvirate/
+" symlink this from ~/.config/nvim/init.vim
 
 "PLUGINS
 "execute pathogen#infect()
@@ -6,43 +6,39 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-  " let Vundle manage Vundle, required
-  Plugin 'VundleVim/Vundle.vim'
-
+" Specify a directory for plugins
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.local/share/nvim/plugged')
   " UI
-  "Plugin 'altercation/vim-colors-solarized'
-  Plugin 'flazz/vim-colorschemes'
-  Plugin 'vim-airline/vim-airline'
-  Plugin 'tpope/vim-fugitive'
-
-  Plugin 'airblade/vim-gitgutter'
-  Plugin 'scrooloose/nerdcommenter'
+  Plug 'flazz/vim-colorschemes'
+  Plug 'vim-airline/vim-airline'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'scrooloose/nerdcommenter'
+  "Plug 'tpope/vim-fugitive'
+  "Plug 'altercation/vim-colors-solarized'
 
   "syntax related
-  Plugin 'scrooloose/syntastic'
-  Plugin 'sheerun/vim-polyglot'
-  "Plugin 'pangloss/vim-javascript'
-  "Plugin 'kchmck/vim-coffee-script'
-  Plugin 'slim-template/vim-slim'
+  Plug 'w0rp/ale'
+  " Plug 'scrooloose/syntastic'
+  "Plug 'sheerun/vim-polyglot'
+  "Plug 'pangloss/vim-javascript'
+  "Plug 'kchmck/vim-coffee-script'
+  "Plug 'slim-template/vim-slim'
 
   "navigation-files
-  Plugin 'wincent/command-t'
-  Plugin 'scrooloose/nerdtree'
-  " Plugin 'christoomey/vim-tmux-navigator'
+  Plug 'scrooloose/nerdtree'
+  "Plug 'wincent/command-t'
+  "Plug 'christoomey/vim-tmux-navigator'
 
   "navigation-text
-  Plugin 'easymotion/vim-easymotion'
-  "Plugin 'justinmk/vim-sneak'
+  Plug 'easymotion/vim-easymotion'
+  "Plug 'justinmk/vim-sneak'
 
   "ruby
-  Plugin 'vim-ruby/vim-ruby'
-  Plugin 'tpope/vim-rails'
+  "Plug 'vim-ruby/vim-ruby'
+  "Plugin 'tpope/vim-rails'
 
-call vundle#end()            " required
+call plug#end()            " required
 
 " Use ack instead of grep
 "set grepprg=ack
@@ -52,13 +48,6 @@ filetype plugin indent on    " required
 " filetype plugin on
 "
 "
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
 " # NERDCommenter
@@ -68,6 +57,19 @@ let g:NERDDefaultAlign = 'left'
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
+" # ALE - linter
+
+" After this is configured, :ALEFix will try and fix your JS code with
+" Standard.
+let g:ale_fixers = {
+\   'javascript': ['standard'],
+\}
+
+" Set this setting in vimrc if you want to fix files automatically on save.
+" This is off by default.
+let g:ale_fix_on_save = 0
+
+" # Themes
 
 
 "set background=dark
@@ -77,14 +79,16 @@ let g:NERDSpaceDelims = 1
 "colorscheme beekai
 "colorscheme maui
 
-"set background=light
-"colorscheme hemisu
+set background=light
+" colorscheme hemisu
+"colorscheme pencil
+"colorscheme fx
 "colorscheme leya
-colorscheme fx
 "colorscheme sol-term
 "colorscheme mango
 "colorscheme beachcomber
 
+" let g:pencil_higher_contrast_ui=1
 set t_Co=16
 "let g:solarized_termcolors=16 "note 16 bit looks great but generate minor problems in vim+tmux 
 
@@ -121,6 +125,11 @@ set noswapfile
 
 "change the leader key from the default \ to comma 
 let mapleader = ","
+
+" # ALE linting
+nmap <leader>l :ALEToggle<CR>
+nmap <leader>f :ALEFix<CR> 
+
 
 " close a buffer
 nmap <leader>w :bd<CR>
@@ -178,3 +187,4 @@ noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 " add tabbing btwn splits
 noremap <tab> <c-w><c-w> 
 
+" git gutter override
