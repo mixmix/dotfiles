@@ -7,7 +7,7 @@
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="amuse"
-# ZSH_THEME="gallifrey-mix"
+# ZSH_THEME="miloshadzic"
 ZSH_THEME="gallifrey"
 # ZSH_THEME="random"
 
@@ -164,7 +164,7 @@ squash-branch() {
   g br -m $name
 }
 
-# text triumvirate 
+# text triumvirate
 
 export EDITOR="vim"
 #bindkey -v   #this turns on vim-bindings in zsh
@@ -173,15 +173,13 @@ export EDITOR="vim"
 bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
-bindkey '^N' history-search-forward 
+bindkey '^N' history-search-forward
 
 ### Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-### Android Studio ###
-# export ANDROID_HOME=${HOME}/Android/Sdk
-# export PATH=${PATH}:${ANDROID_HOME}/tools
-# export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+### Home Bin
+export PATH="$HOME/bin:$PATH"
 
 ### Node section ###
 export NVM_DIR="$HOME/.nvm"
@@ -246,3 +244,9 @@ fi
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
 
+
+# Rust
+# To get started you need Cargo's bin directory ($HOME/.cargo/bin) in your PATH
+# environment variable. Next time you log in this will be done automatically.
+
+# To configure your current shell run source $HOME/.cargo/env

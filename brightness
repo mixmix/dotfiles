@@ -1,0 +1,3 @@
+#!/bin/bash
+BRIGHTNESS=`cat /sys/class/backlight/intel_backlight/brightness` 
+expr $BRIGHTNESS + $1 | sudo tee /sys/class/backlight/intel_backlight/brightness

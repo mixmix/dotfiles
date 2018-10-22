@@ -12,6 +12,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   " UI
   Plug 'flazz/vim-colorschemes'
   Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'airblade/vim-gitgutter'
   Plug 'scrooloose/nerdcommenter'
   "Plug 'tpope/vim-fugitive'
@@ -31,7 +32,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   "Plug 'christoomey/vim-tmux-navigator'
 
   "navigation-text
-  Plug 'easymotion/vim-easymotion'
+  "Plug 'easymotion/vim-easymotion'
   "Plug 'justinmk/vim-sneak'
 
   "ruby
@@ -53,12 +54,10 @@ filetype plugin indent on    " required
 " # NERDCommenter
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
-
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
 " # ALE - linter
-
 " After this is configured, :ALEFix will try and fix your JS code with
 " Standard.
 let g:ale_fixers = {
@@ -70,8 +69,6 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 0
 
 " # Themes
-
-
 "set background=dark
 "colorscheme solarized
 "colorscheme spacegray
@@ -80,7 +77,7 @@ let g:ale_fix_on_save = 0
 "colorscheme maui
 
 set background=light
-" colorscheme hemisu
+"colorscheme hemisu
 "colorscheme pencil
 "colorscheme fx
 "colorscheme leya
@@ -90,21 +87,27 @@ set background=light
 
 " let g:pencil_higher_contrast_ui=1
 set t_Co=16
-"let g:solarized_termcolors=16 "note 16 bit looks great but generate minor problems in vim+tmux 
+"let g:solarized_termcolors=16 "note 16 bit looks great but generate minor problems in vim+tmux
 
 "set t_Co=256
 "let g:solarized_termcolors=256
 "let g:solarized_termtrans = 1
 "togglebg#map("<F5>")
 
-set laststatus=2 "this ensures the statusbar is always visible
-let g:airline_powerline_fonts = 1
+" # airline
 let g:airline#extensions#tabline#enabled = 1
-"if !exists('g:airline_symbols')
-"  let g:airline_symbols = {}
-"endif
-"let g:airline_symbols.space = "\ua0"
+set laststatus=2 "this ensures the statusbar is always visible
 
+" let g:airline_theme='base16_grayscale'
+" let g:airline_theme='minimalist'
+let g:airline_theme='night_owl'
+" let g:airline_theme='soda'
+
+" let g:airline_powerline_fonts = 1
+" if !exists('g:airline_symbols')
+"  let g:airline_symbols = {}
+" endif
+" let g:airline_symbols.space = "\ua0"
 
 "formatting stuff
 "set smartindent
@@ -112,7 +115,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 set tabstop=2
 set shiftwidth=2
-set expandtab  
+set expandtab
 set hlsearch "highlights all search matches
 
 set number
@@ -123,29 +126,21 @@ syntax enable
 set nobackup
 set noswapfile
 
-"change the leader key from the default \ to comma 
-let mapleader = ","
+" # Shortcuts
+let mapleader = "," "change the leader key from the default \ to comma
 
-" # ALE linting
 nmap <leader>l :ALEToggle<CR>
-nmap <leader>f :ALEFix<CR> 
+nmap <leader>f :ALEFix<CR>
 
-
-" close a buffer
-nmap <leader>w :bd<CR>
-
-" map jj to be equivalent to Esc
 imap jj <Esc>
+" map jj to be equivalent to Esc
 
 " NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
 
-" Vim-Sneak
-"let g:sneak#s_next = 1
-
-" auto open NERDTree if there's no file passed : 
+" auto open NERDTree if there's no file passed :
 function! StartUp()
   if 0 == argc()
     NERDTree
@@ -160,7 +155,7 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-" run the current file with node 
+" run the current file with node
 nmap 1 :!clear && node %<CR>
 " run the npm test command
 nmap ` :!clear && npm test<CR>
@@ -171,6 +166,9 @@ map <C-l> :bn<CR>
 
 map <C-left> :bp<CR>
 map <C-h> :bp<CR>
+
+nmap <leader>w :bd<CR>
+" close a buffer
 
 " Yank text to the clipboard
 " you need to install a vim with +xterm_clipboard to ensure you can copy to
@@ -185,6 +183,6 @@ set clipboard=unnamedplus
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 " add tabbing btwn splits
-noremap <tab> <c-w><c-w> 
+noremap <tab> <c-w><c-w>
 
 " git gutter override

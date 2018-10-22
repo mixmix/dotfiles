@@ -3,6 +3,7 @@
 
 - kubuntu : 
   - sudo apt-get install git curl zsh feh ack
+  - sudo apt-get install shutter youtube-dl keepassxc
 
 - i3
   - i3 : sudo apt-get install i3
@@ -14,16 +15,25 @@
   - sudo apt-get install neovim
   - https://github.com/neovim/neovim
   - link : .config/nvim/init.vim
-  - vim-plug : https://github.com/junegunn/vim-plug
+  - vim-plug : https://github.com/junegunn/vim-plug , install plugins
   - ?? airline/ powerline fonts
 
 - brightness:
   - ?? xbacklight ??
 
+- trackpad
+  - mtrack / synaptic / libinput (using this one atm?)
+    - sudo apt-get install xserver-xorg-input-libinput (think this is pre-installed)
 
 - git
   - set up user
   - set up ssh keys
+
+- node
+  - nvm
+
+- zsh
+  - link: .zshrc
 
 ## Laptop : T440s
 
@@ -35,6 +45,9 @@
 • Bluetooth Version 4.0
 
 bought Oct 2014
+
+- https://01.org/linuxgraphics
+  - no longer needed?
 
 ---
 
