@@ -140,16 +140,16 @@ alias tt='cd ~/projects/protozoa/ticktack'
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit"
+alias gpom="git pull origin master"
 alias gco="git checkout"
 alias gcom="git checkout master"
-# alias gcos="git checkout staging"
+alias gdom="git diff origin/master"
 alias gfo="git fetch origin"
+# alias gcos="git checkout staging"
 alias gfs="git fetch ssb"
 alias gg="git log --pretty=oneline --abbrev-commit --graph --decorate"
 alias gga="git log --pretty=oneline --abbrev-commit --graph --decorate --all"
-alias gpom="git pull origin master"
 alias gpsm="git pull ssb master"
-alias gdom="git diff origin/master"
 alias gtrash="git status --short | xargs trash"
 alias gfire="git push origin HEAD:${USER}-fire -f"
 
@@ -180,6 +180,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Home Bin
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 ### Node section ###
 export NVM_DIR="$HOME/.nvm"
@@ -239,6 +240,17 @@ elif type compctl &>/dev/null; then
 fi
 ###-end-npm-completion-###
 
+
+# check all node dependencies are included before!
+# https://www.npmjs.com/package/dependency-check
+npm () {
+  ([ "$1" != "publish" ] || dependency-check .) && command npm "$@"
+}
+# npm () {
+#   if [ "$1" = "publish" ]; then
+#     dependency-check . &&  $(which npm) "$@"
+#   fi
+# }
 
 # RBENV setup
 # export PATH="$HOME/.rbenv/bin:$PATH"

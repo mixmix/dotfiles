@@ -9,7 +9,7 @@
   - i3 : sudo apt-get install i3
   - i3-gaps : https://github.com/Airblader/i3 (gaps-next)
   - link : .config/i3/config .config/i3status/config
-  - ?? notification styling
+  - notification styling: .config/dunst
 
 - NeoVim
   - sudo apt-get install neovim
