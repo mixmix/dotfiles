@@ -103,6 +103,7 @@ alias firefox-dev="/opt/firefox/firefox"
 alias tmux="TERM=xterm-256color tmux"
 alias mygrep="grep -rinsI"
 alias magic="echo '\n\e[37m  (ﾉ´ヮ´)ﾉ*:･ﾟ✧\e[0m\n'"
+alias ahau="echo '\n\e[37m  Āhau\e[0m\n'"
 # nmcli d wifi
 # nmcli d wifi connect NETGEAR81-5G password thoughtfultrumpet153
 # nmcli con
@@ -252,13 +253,22 @@ npm () {
 #   fi
 # }
 
-# RBENV setup
+### RBENV setup ###
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
 
 
-# Rust
+### Rust ###
 # To get started you need Cargo's bin directory ($HOME/.cargo/bin) in your PATH
 # environment variable. Next time you log in this will be done automatically.
 
 # To configure your current shell run source $HOME/.cargo/env
+
+### Android ###
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+

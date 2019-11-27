@@ -20,6 +20,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   "syntax related
   Plug 'w0rp/ale'
+  Plug 'rust-lang/rust.vim'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'posva/vim-vue'
   " Plug 'scrooloose/syntastic'
   "Plug 'sheerun/vim-polyglot'
   "Plug 'pangloss/vim-javascript'
@@ -58,11 +61,13 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDSpaceDelims = 1
 
 " # ALE - linter
-" After this is configured, :ALEFix will try and fix your JS code with
-" Standard.
-let g:ale_fixers = {
-\   'javascript': ['standard'],
-\}
+
+" settings for linting .vue files
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+let g:ale_linters = {'vue': ['eslint', 'vls']}
+
+" After this is configured, :ALEFix will try and fix your JS code with Standard.
+let g:ale_fixers = {'javascript': ['standard']}
 
 " Set this setting in vimrc if you want to fix files automatically on save.
 " This is off by default.
