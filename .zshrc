@@ -109,6 +109,9 @@ alias ahau="echo '\n\e[37m  Āhau\e[0m\n'"
 # nmcli con
 # wifi-menu -o
 
+alias yesterday='vim -O ~/Documents/journal/$(date -I --date "yesterday").md ~/Documents/journal/$(date -I).md'
+alias today='vim ~/Documents/journal/$(date -I).md'
+
 # rake aliases
 # alias rdm="rake db:migrate db:test:prepare"
 # alias rdrb='bundle exec rake db:rollback'
@@ -131,10 +134,6 @@ alias ahau="echo '\n\e[37m  Āhau\e[0m\n'"
 
 alias ssb='cd ~/projects/SSBC'
 alias pb='cd ~/projects/SSBC/patchbay'
-alias pw='cd ~/projects/SSBC/patchwork'
-alias pz='cd ~/projects/protozoa'
-alias tt='cd ~/projects/protozoa/ticktack'
-# alias eda='cd ~/projects/EDA'
 # alias loom='cd ~/projects/LOOMIO/loomio'
 # alias tupdate='loom && gcom && gpom && ~/projects/LOOMIO/i18n-tools/update.sh'
 
@@ -146,11 +145,8 @@ alias gco="git checkout"
 alias gcom="git checkout master"
 alias gdom="git diff origin/master"
 alias gfo="git fetch origin"
-# alias gcos="git checkout staging"
-alias gfs="git fetch ssb"
 alias gg="git log --pretty=oneline --abbrev-commit --graph --decorate"
 alias gga="git log --pretty=oneline --abbrev-commit --graph --decorate --all"
-alias gpsm="git pull ssb master"
 alias gtrash="git status --short | xargs trash"
 alias gfire="git push origin HEAD:${USER}-fire -f"
 

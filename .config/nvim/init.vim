@@ -64,7 +64,12 @@ let g:NERDSpaceDelims = 1
 
 " settings for linting .vue files
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let g:ale_linters = {'vue': ['eslint', 'vls']}
+let g:ale_linters = {
+\ 'javascript': ['standard'],
+\ 'vue': ['eslint', 'vls']
+\}
+
+" 'javascript': ['eslint', 'standard'],
 
 " After this is configured, :ALEFix will try and fix your JS code with Standard.
 let g:ale_fixers = {'javascript': ['standard']}
@@ -161,9 +166,9 @@ map <left> <nop>
 map <right> <nop>
 
 " run the current file with node
-nmap 1 :!clear && node %<CR>
-" run the npm test command
-nmap ` :!clear && npm test<CR>
+nmap ` :!clear && node % <CR>
+" nmap ` :!clear && npm test<CR>
+" nmap 1 :!clear && node %<CR>
 
 "buffer  navigation
 map <C-right> :bn<CR>
