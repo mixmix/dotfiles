@@ -9,25 +9,29 @@ filetype off                  " required
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
-  " UI
-  Plug 'flazz/vim-colorschemes'
+  " Themes
+  Plug 'patstockwell/vim-monokai-tasty'
+  " Plug 'flazz/vim-colorschemes'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+
+  " UI
   Plug 'airblade/vim-gitgutter'
   Plug 'scrooloose/nerdcommenter'
   "Plug 'tpope/vim-fugitive'
   "Plug 'altercation/vim-colors-solarized'
 
-  "syntax related
+  "syntax / language related
   Plug 'w0rp/ale'
-  Plug 'rust-lang/rust.vim'
-  Plug 'leafgarland/typescript-vim'
+  " Plug 'rust-lang/rust.vim'
+  " Plug 'leafgarland/typescript-vim'
   Plug 'posva/vim-vue'
   " Plug 'scrooloose/syntastic'
   "Plug 'sheerun/vim-polyglot'
-  "Plug 'pangloss/vim-javascript'
+  Plug 'pangloss/vim-javascript'
   "Plug 'kchmck/vim-coffee-script'
   "Plug 'slim-template/vim-slim'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   "navigation-files
   Plug 'scrooloose/nerdtree'
@@ -80,13 +84,16 @@ let g:ale_fix_on_save = 0
 
 " # Themes
 "set background=dark
+let g:vim_monokai_tasty_italic = 1
+colorscheme vim-monokai-tasty
+
 "colorscheme solarized
 "colorscheme spacegray
 "colorscheme mango
 "colorscheme beekai
 "colorscheme maui
 
-set background=light
+" set background=light
 "colorscheme hemisu
 "colorscheme pencil
 "colorscheme fx
@@ -110,7 +117,8 @@ set laststatus=2 "this ensures the statusbar is always visible
 
 " let g:airline_theme='base16_grayscale'
 " let g:airline_theme='minimalist'
-let g:airline_theme='night_owl'
+" let g:airline_theme='night_owl' " << previous
+let g:airline_theme='monokai_tasty'
 " let g:airline_theme='soda'
 
 " let g:airline_powerline_fonts = 1

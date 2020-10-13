@@ -5,10 +5,10 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 # ZSH_THEME="amuse"
 # ZSH_THEME="miloshadzic"
-ZSH_THEME="gallifrey"
+# ZSH_THEME="gallifrey"
 # ZSH_THEME="random"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -241,7 +241,7 @@ fi
 # check all node dependencies are included before!
 # https://www.npmjs.com/package/dependency-check
 npm () {
-  ([ "$1" != "publish" ] || dependency-check .) && command npm "$@"
+  ([ "$1" != "publish" ] || dependency-check . --no-dev) && command npm "$@"
 }
 # npm () {
 #   if [ "$1" = "publish" ]; then
@@ -257,6 +257,7 @@ npm () {
 ### Rust ###
 # To get started you need Cargo's bin directory ($HOME/.cargo/bin) in your PATH
 # environment variable. Next time you log in this will be done automatically.
+export PATH=$PATH:$HOME/.cargo/bin
 
 # To configure your current shell run source $HOME/.cargo/env
 
@@ -268,3 +269,4 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 
+fpath+=${ZDOTDIR:-~}/.zsh_functions

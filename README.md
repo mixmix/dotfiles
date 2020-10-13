@@ -1,39 +1,27 @@
-
 # Kubuntu / i3
 
-- kubuntu : 
-  - sudo apt-get install git curl zsh feh ack
-  - sudo apt-get install shutter youtube-dl keepassxc
+- tools
+  - `sudo apt install git curl zsh feh`
+  - zsh
+    - https://github.com/ohmyzsh/ohmyzsh
+    - link: .zshrc
+  - `sudo apt install shutter youtube-dl keepassxc`
+  - git
+    - set up user
+    - set up ssh keys
+  - ripgrep: `crate install ripgrep`
 
-- i3
-  - i3 : sudo apt-get install i3
-  - i3-gaps : https://github.com/Airblader/i3 (gaps-next)
-  - link : .config/i3/config .config/i3status/config
-  - notification styling: .config/dunst
-
-- NeoVim
-  - sudo apt-get install neovim
-  - https://github.com/neovim/neovim
+- [NeoVim](https://github.com/neovim/neovim)
+  - `sudo apt-get install neovim`
   - link : .config/nvim/init.vim
   - vim-plug : https://github.com/junegunn/vim-plug , install plugins
   - ?? airline/ powerline fonts
 
-- brightness:
-  - ?? xbacklight ??
+- languages
+  - node: https://github.com/nvm-sh/nvm
+  - rust: https://www.rust-lang.org/learn/get-started
 
-- trackpad
-  - mtrack / synaptic / libinput (using this one atm?)
-    - sudo apt-get install xserver-xorg-input-libinput (think this is pre-installed)
-
-- git
-  - set up user
-  - set up ssh keys
-
-- node
-  - nvm
-
-- zsh
-  - link: .zshrc
+- regolith linux : https://regolith-linux.org/
 
 ## Laptop : T440s
 
@@ -49,6 +37,10 @@ bought Oct 2014
 - https://01.org/linuxgraphics
   - no longer needed?
 
+
+- trackpad
+  - mtrack / synaptic / libinput (using this one atm?)
+    - sudo apt-get install xserver-xorg-input-libinput (think this is pre-installed)
 ---
 
 ## System
@@ -80,35 +72,34 @@ gui tools
 
 ## Setup
 
-- Vim
+- Kubuntu - remap caps to esc
+  - drop window menu / title bars
+  - multiple desktops
+
+
+## Other Resources:
+
+- [Text Triumvirate](http://www.drbunsen.org/the-text-triumvirate/)
+- https://github.com/powerline/powerline
+- [Widdershin](https://github.com/Widdershin/dotfiles)
+- rbenv
+  
+## Older tools
+
+i3
+  - i3 : sudo apt-get install i3
+  - i3-gaps : https://github.com/Airblader/i3 (gaps-next)
+  - link : .config/i3/config .config/i3status/config
+  - notification styling: .config/dunst
+
+
+Vim
   - `update-alternatives --list vim` check which version of vim you have installed
     - found using vim-gtk worked ok, but was verion 7
   - `vim --version` check what current version of vim was built with
   - Commant-T ruby version: 
     - `~/.vim/bundle/Command-T/ruby/command-t`
     - something like : rbenv install new ruby, `ruby extconf.rb`, `make`
-
-- Neovim
-  - https://github.com/neovim/neovim
-  - vundle
-    - vim-plug : https://github.com/junegunn/vim-plug
-      - carefully not where you install files / plugins!
-    - // https://github.com/VundleVim/Vundle.vim
-
-- Kubuntu - remap caps to esc
-  - drop window menu / title bars
-  - multiple desktops
-
-
-## Resources:
-
-- [Text Triumvirate](http://www.drbunsen.org/the-text-triumvirate/)
-- https://github.com/powerline/powerline
-- [Widdershin](https://github.com/Widdershin/dotfiles)
-
-- rbenv
-- nvm
-  
 
 ## Old notes from Xubuntu
 
