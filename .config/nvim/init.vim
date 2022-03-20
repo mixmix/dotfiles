@@ -11,6 +11,8 @@ filetype off                  " required
 call plug#begin('~/.local/share/nvim/plugged')
   " Themes
   Plug 'patstockwell/vim-monokai-tasty'
+  Plug 'ghifarit53/daycula-vim' , {'branch' : 'main'}
+
   " Plug 'flazz/vim-colorschemes'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -22,21 +24,25 @@ call plug#begin('~/.local/share/nvim/plugged')
   "Plug 'altercation/vim-colors-solarized'
 
   "syntax / language related
-  Plug 'w0rp/ale'
-  " Plug 'rust-lang/rust.vim'
-  " Plug 'leafgarland/typescript-vim'
+  Plug 'pangloss/vim-javascript'
   Plug 'posva/vim-vue'
+  Plug 'jparise/vim-graphql'
+  " Plug 'leafgarland/typescript-vim'
   " Plug 'scrooloose/syntastic'
   "Plug 'sheerun/vim-polyglot'
-  Plug 'pangloss/vim-javascript'
-  "Plug 'kchmck/vim-coffee-script'
   "Plug 'slim-template/vim-slim'
+  Plug 'w0rp/ale'
+  Plug 'rust-lang/rust.vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+  " remember to run e.g. :CocInstall coc-rust-analyzer
 
   "navigation-files
   Plug 'scrooloose/nerdtree'
   "Plug 'wincent/command-t'
   "Plug 'christoomey/vim-tmux-navigator'
+  "
+  Plug 'junegunn/goyo.vim'
 
   "navigation-text
   "Plug 'easymotion/vim-easymotion'
@@ -45,16 +51,13 @@ call plug#begin('~/.local/share/nvim/plugged')
   "ruby
   "Plug 'vim-ruby/vim-ruby'
   "Plugin 'tpope/vim-rails'
-
 call plug#end()            " required
 
-" Use ack instead of grep
-"set grepprg=ack
+" Use rg instead of grep
+"set grepprg=rg
 
+syntax enable
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-" filetype plugin on
-"
 "
 " Put your non-Plugin stuff after this line
 
@@ -83,43 +86,19 @@ let g:ale_fixers = {'javascript': ['standard']}
 let g:ale_fix_on_save = 0
 
 " # Themes
-"set background=dark
-let g:vim_monokai_tasty_italic = 1
+
+set termguicolors
+
 colorscheme vim-monokai-tasty
-
-"colorscheme solarized
-"colorscheme spacegray
-"colorscheme mango
-"colorscheme beekai
-"colorscheme maui
-
-" set background=light
-"colorscheme hemisu
-"colorscheme pencil
-"colorscheme fx
-"colorscheme leya
-"colorscheme sol-term
-"colorscheme mango
-"colorscheme beachcomber
-
-" let g:pencil_higher_contrast_ui=1
-set t_Co=16
-"let g:solarized_termcolors=16 "note 16 bit looks great but generate minor problems in vim+tmux
-
-"set t_Co=256
-"let g:solarized_termcolors=256
-"let g:solarized_termtrans = 1
-"togglebg#map("<F5>")
+  let g:vim_monokai_tasty_italic = 1
+  let g:airline_theme='monokai_tasty'
+" colorscheme daycula
+"   let g:airline_theme = "daycula"
 
 " # airline
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2 "this ensures the statusbar is always visible
 
-" let g:airline_theme='base16_grayscale'
-" let g:airline_theme='minimalist'
-" let g:airline_theme='night_owl' " << previous
-let g:airline_theme='monokai_tasty'
-" let g:airline_theme='soda'
 
 " let g:airline_powerline_fonts = 1
 " if !exists('g:airline_symbols')
@@ -138,17 +117,18 @@ set hlsearch "highlights all search matches
 
 set number
 
-syntax enable
-
 "stop vim from tracking fils and changes
 set nobackup
 set noswapfile
 
 " # Shortcuts
-let mapleader = "," "change the leader key from the default \ to comma
+" let mapleader = "," "change the leader key from the default \ to comma
 
 nmap <leader>l :ALEToggle<CR>
 nmap <leader>f :ALEFix<CR>
+
+"COC shortcuts
+nmap <silent> f :RustFmt<CR>
 
 imap jj <Esc>
 " map jj to be equivalent to Esc
@@ -185,7 +165,8 @@ map <C-l> :bn<CR>
 map <C-left> :bp<CR>
 map <C-h> :bp<CR>
 
-nmap <leader>w :bd<CR>
+nmap <leader> w :bd<CR>
+map <C-w> w :bd<CR>
 " close a buffer
 
 " Yank text to the clipboard
@@ -204,3 +185,8 @@ noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 noremap <tab> <c-w><c-w>
 
 " git gutter override
+
+" spelling auto-fix - src: https://castel.dev/post/lecture-notes-1/#correcting-spelling-mistakes-on-the-fly
+" setlocal spell
+" set spelllang=en_gb
+" inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u

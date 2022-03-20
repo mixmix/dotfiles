@@ -103,7 +103,9 @@ alias firefox-dev="/opt/firefox/firefox"
 alias tmux="TERM=xterm-256color tmux"
 alias mygrep="grep -rinsI"
 alias magic="echo '\n\e[37m  (ﾉ´ヮ´)ﾉ*:･ﾟ✧\e[0m\n'"
-alias ahau="echo '\n\e[37m  Āhau\e[0m\n'"
+alias ahau="cd ~/projects/AHAU && echo '\n\e[37m  Āhau\e[0m\n'"
+alias dev="npm run dev"
+alias lint="npm run lint"
 # nmcli d wifi
 # nmcli d wifi connect NETGEAR81-5G password thoughtfultrumpet153
 # nmcli con
@@ -240,9 +242,9 @@ fi
 
 # check all node dependencies are included before!
 # https://www.npmjs.com/package/dependency-check
-npm () {
-  ([ "$1" != "publish" ] || dependency-check . --no-dev) && command npm "$@"
-}
+# npm () {
+#   ([ "$1" != "publish" ] || dependency-check . --no-dev) && command npm "$@"
+# }
 # npm () {
 #   if [ "$1" = "publish" ]; then
 #     dependency-check . &&  $(which npm) "$@"
@@ -270,3 +272,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+### Radicle
+
+export PATH="$HOME/.radicle/bin:$PATH"
