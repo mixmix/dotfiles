@@ -1,5 +1,5 @@
 [user]
-	email = whimful@gmail.com
+	email = mix@protozoa.nz
 	name = mix irving
 [merge "npm-merge-driver"]
 	name = automatically merge npm lockfiles

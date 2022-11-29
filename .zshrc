@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -98,14 +98,17 @@ source $ZSH/oh-my-zsh.sh
 
 # alias
 
-alias firefox-dev="/opt/firefox/firefox"
-#alias tmux="tmux -2"
-alias tmux="TERM=xterm-256color tmux"
-alias mygrep="grep -rinsI"
+# alias firefox-dev="/opt/firefox/firefox"
+# alias tmux="tmux -2"
+# alias tmux="TERM=xterm-256color tmux"
+# alias mygrep="grep -rinsI"
 alias magic="echo '\n\e[37m  (ﾉ´ヮ´)ﾉ*:･ﾟ✧\e[0m\n'"
-alias ahau="cd ~/projects/AHAU && echo '\n\e[37m  Āhau\e[0m\n'"
+alias ahau="cd ~/projects/AHAU/ahau && echo '\n\e[37m  Āhau\e[0m\n'"
+alias smat="cd ~/projects/SMAT/network-ui"
+
 alias dev="npm run dev"
 alias lint="npm run lint"
+
 # nmcli d wifi
 # nmcli d wifi connect NETGEAR81-5G password thoughtfultrumpet153
 # nmcli con
@@ -142,6 +145,7 @@ alias pb='cd ~/projects/SSBC/patchbay'
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit"
+alias gpo="git pull origin"
 alias gpom="git pull origin master"
 alias gco="git checkout"
 alias gcom="git checkout master"
@@ -264,15 +268,18 @@ export PATH=$PATH:$HOME/.cargo/bin
 # To configure your current shell run source $HOME/.cargo/env
 
 ### Android ###
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+# export ANDROID_HOME=$HOME/Android/Sdk
+# export PATH=$PATH:$ANDROID_HOME/emulator
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:$ANDROID_HOME/tools/bin
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-
+# Alacritty
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 ### Radicle
+# export PATH="$HOME/.radicle/bin:$PATH"
 
-export PATH="$HOME/.radicle/bin:$PATH"
+### Go
+# export PATH=$PATH:/usr/local/go/bin
+

@@ -1,10 +1,16 @@
 " symlink this from ~/.config/nvim/init.vim
 
 "PLUGINS
-"execute pathogen#infect()
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible             " disable compatability
+filetype on                  " enable type file detection
+filetype plugin on           " enable plugins and load plugins
+filetype indent on           " load an indent file for detexted file type
+syntax on                    " syntax highlighting
+
+" disable default file explorer
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
 
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
@@ -18,9 +24,11 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'vim-airline/vim-airline-themes'
 
   " UI
-  Plug 'airblade/vim-gitgutter'
-  Plug 'scrooloose/nerdcommenter'
   "Plug 'tpope/vim-fugitive'
+  "Plug 'airblade/vim-gitgutter'
+  Plug 'lewis6991/gitsigns.nvim'
+
+  Plug 'scrooloose/nerdcommenter'
   "Plug 'altercation/vim-colors-solarized'
 
   "syntax / language related
@@ -38,10 +46,12 @@ call plug#begin('~/.local/share/nvim/plugged')
   " remember to run e.g. :CocInstall coc-rust-analyzer
 
   "navigation-files
-  Plug 'scrooloose/nerdtree'
-  "Plug 'wincent/command-t'
-  "Plug 'christoomey/vim-tmux-navigator'
-  "
+  " Plug 'nvim-tree/nvim-web-devicons'
+  Plug 'nvim-tree/nvim-tree.lua'
+  " Plug 'scrooloose/nerdtree'
+  " Plug 'wincent/command-t'
+  " Plug 'christoomey/vim-tmux-navigator'
+
   Plug 'junegunn/goyo.vim'
 
   "navigation-text
@@ -53,13 +63,67 @@ call plug#begin('~/.local/share/nvim/plugged')
   "Plugin 'tpope/vim-rails'
 call plug#end()            " required
 
+:lua require('gitsigns').setup()
+:lua << EOF
+  require('nvim-tree').setup({
+    renderer = {
+      highlight_opened_files = "all",
+      icons = {
+        webdev_colors = false,
+        git_placement = "after",
+        show = {
+          file = false,
+          folder = true,
+          folder_arrow = true,
+          git = true,
+        },
+        glyphs = {
+          default = "",
+          symlink = "",
+          bookmark = "",
+          folder = {
+            arrow_closed = ">",
+            arrow_open = "",
+            default = "",
+            open = "",
+            empty = "",
+            empty_open = "",
+            symlink = "",
+            symlink_open = "",
+          },
+          git = {
+            unstaged = "✗",
+            staged = "✓",
+            unmerged = "",
+            renamed = "➜",
+            untracked = "★",
+            deleted = "",
+            ignored = "◌",
+          },
+        },
+      },
+      special_files = { 
+        "README.md",
+        "readme.md",
+        "Cargo.toml",
+        "Makefile"
+      },
+      symlink_destination = true,
+    }
+  })
+EOF
+" :lua require('nvim-tree').setup()
+
 " Use rg instead of grep
 "set grepprg=rg
 
-syntax enable
-filetype plugin indent on    " required
 "
 " Put your non-Plugin stuff after this line
+"
+
+" highlight code blocks
+let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json', 'html']
+
 
 " # NERDCommenter
 " Align line-wise comment delimiters flush left instead of following code indentation
@@ -75,7 +139,6 @@ let g:ale_linters = {
 \ 'javascript': ['standard'],
 \ 'vue': ['eslint', 'vls']
 \}
-
 " 'javascript': ['eslint', 'standard'],
 
 " After this is configured, :ALEFix will try and fix your JS code with Standard.
@@ -94,6 +157,9 @@ colorscheme vim-monokai-tasty
   let g:airline_theme='monokai_tasty'
 " colorscheme daycula
 "   let g:airline_theme = "daycula"
+
+highlight Comment gui=italic
+" highlight Comment cterm=italic  < if not set termguicolors
 
 " # airline
 let g:airline#extensions#tabline#enabled = 1
@@ -121,6 +187,9 @@ set number
 set nobackup
 set noswapfile
 
+" always show signcolumns
+set signcolumn=yes
+
 " # Shortcuts
 " let mapleader = "," "change the leader key from the default \ to comma
 
@@ -134,18 +203,22 @@ imap jj <Esc>
 " map jj to be equivalent to Esc
 
 " NERDTree
-nmap <leader>n :NERDTreeToggle<CR>
-let NERDTreeHighlightCursorline=1
-let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
+" nmap <leader>n :NERDTreeToggle<CR>
+" let NERDTreeHighlightCursorline=1
+" let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
 
 " auto open NERDTree if there's no file passed :
-function! StartUp()
-  if 0 == argc()
-    NERDTree
-  end
-endfunction
+" function! StartUp()
+"   if 0 == argc()
+"     NERDTree
+"   end
+" endfunction
 
-autocmd VimEnter * call StartUp()
+" autocmd VimEnter * call StartUp()
+
+" NvimTree
+nmap <leader>n :NvimTreeToggle<CR>
+
 
 "stop me using the arrow keys :P
 map <up> <nop>

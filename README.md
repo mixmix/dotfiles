@@ -1,27 +1,26 @@
 # Kubuntu / i3
 
 - tools
-  - `sudo apt install git curl zsh feh`
-  - zsh
-    - https://github.com/ohmyzsh/ohmyzsh
-    - link: .zshrc
-  - `sudo apt install shutter youtube-dl keepassxc`
+  - `sudo apt install git curl zsh ripgrep keepassxc flameshot htop slurm filelight`
+  - https://ohmyz.sh/#install
   - git
+    - link `.gitconfig`
     - set up user
     - set up ssh keys
-  - ripgrep: `crate install ripgrep`
 
 - [NeoVim](https://github.com/neovim/neovim)
-  - `sudo apt-get install neovim`
-  - link : .config/nvim/init.vim
-  - vim-plug : https://github.com/junegunn/vim-plug , install plugins
-  - ?? airline/ powerline fonts
+  - link : `.config/nvim/init.vim`
+  - [vim-plug](https://github.com/junegunn/vim-plug), `:PlugInstall`
+
+- [Alacritty](https://alacritty.org/)
+  - `sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50`
+  - `sudo update-alternatives --config x-terminal-emulator`
 
 - languages
   - node: https://github.com/nvm-sh/nvm
   - rust: https://www.rust-lang.org/learn/get-started
 
-- regolith linux : https://regolith-linux.org/
+- regolith linux : https://regolith-desktop.com/
 
 ## Laptop : T440s
 
@@ -45,14 +44,9 @@ bought Oct 2014
 
 ## System
 
-
-- Konsole
-- vim.gtk3 (debian package)
-- i3-gaps
-
 terminal tools:
   - zsh / oh-my-zsh
-  - ack
+  - rg
   - fd : https://github.com/sharkdp/fd
   - tree
   - feh
