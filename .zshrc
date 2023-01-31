@@ -109,38 +109,14 @@ alias smat="cd ~/projects/SMAT/network-ui"
 alias dev="npm run dev"
 alias lint="npm run lint"
 
-# nmcli d wifi
-# nmcli d wifi connect NETGEAR81-5G password thoughtfultrumpet153
-# nmcli con
-# wifi-menu -o
-
 alias yesterday='vim -O ~/Documents/journal/$(date -I --date "yesterday").md ~/Documents/journal/$(date -I).md'
 alias today='vim ~/Documents/journal/$(date -I).md'
-
-# rake aliases
-# alias rdm="rake db:migrate db:test:prepare"
-# alias rdrb='bundle exec rake db:rollback'
-# alias zrdm="zeus rake db:migrate db:test:prepare"
-# alias zrr="zeus rake routes"
-# alias zrrg="zeus rake routes | grep"
-# alias rrg="rake routes | grep"
-# alias brr="bin/rake routes"
-# alias brrg="bin/rake routes | grep"
-
-# contributor_grapher envs
-
-# export USER_AGENT=www.github.com/s01us
-# export TARGET_REPO=loomio/loomio
-# export CUSTOM_HEADING='commited to LOOMIO this month'
-
 
 # alias useful="cat /home/mixmix/Desktop/useful\ commands | less"
 # alias vuseful="vim /home/mixmix/Desktop/useful\ commands"
 
 alias ssb='cd ~/projects/SSBC'
 alias pb='cd ~/projects/SSBC/patchbay'
-# alias loom='cd ~/projects/LOOMIO/loomio'
-# alias tupdate='loom && gcom && gpom && ~/projects/LOOMIO/i18n-tools/update.sh'
 
 alias gs="git status"
 alias ga="git add"
