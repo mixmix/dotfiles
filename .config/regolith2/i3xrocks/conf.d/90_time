@@ -1,0 +1,5 @@
+# Date Time
+[time]
+interval=xresource:i3xrocks.time.interval 10
+color=white
+min_width=160

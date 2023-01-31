@@ -1,6 +1,11 @@
 i3-wm.gaps.inner.size: 8
 i3-wm.window.border.size: 0
 
-regolith.wallpaper.file: /home/mix-old/Pictures/backgrounds/ESP_016895_1525_desktop.jpg 
+# regolith.wallpaper.file: /home/mix-old/Pictures/backgrounds/ESP_016895_1525_desktop.jpg 
 
-regolith.look.path: /usr/share/regolith-look/ayu-dark
+# regolith.look.path: /usr/share/regolith-look/ayu-dark
+regolith.look.path: /usr/share/regolith-look/lascaille
+
+i3xrocks.value.color: #999
+i3xrocks.label.color: #777
+

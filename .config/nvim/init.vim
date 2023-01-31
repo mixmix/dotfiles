@@ -17,7 +17,8 @@ let g:loaded_netrwPlugin = 1
 call plug#begin('~/.local/share/nvim/plugged')
   " Themes
   Plug 'patstockwell/vim-monokai-tasty'
-  Plug 'ghifarit53/daycula-vim' , {'branch' : 'main'}
+  " Plug 'pineapplegiant/spaceduck', { 'branch': 'main' } 
+  " Plug 'ghifarit53/daycula-vim' , {'branch' : 'main'}
 
   " Plug 'flazz/vim-colorschemes'
   Plug 'vim-airline/vim-airline'
@@ -155,6 +156,7 @@ set termguicolors
 colorscheme vim-monokai-tasty
   let g:vim_monokai_tasty_italic = 1
   let g:airline_theme='monokai_tasty'
+
 " colorscheme daycula
 "   let g:airline_theme = "daycula"
 

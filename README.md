@@ -11,10 +11,12 @@
 - [NeoVim](https://github.com/neovim/neovim)
   - link : `.config/nvim/init.vim`
   - [vim-plug](https://github.com/junegunn/vim-plug), `:PlugInstall`
+  - install `gnome-tweaks` to change CAPS > Esc (if using gnome)
 
 - [Alacritty](https://alacritty.org/)
   - `sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50`
   - `sudo update-alternatives --config x-terminal-emulator`
+  - `chsh -s $(which zsh) mixmix` (last arg is username)
 
 - languages
   - node: https://github.com/nvm-sh/nvm

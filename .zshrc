@@ -179,7 +179,7 @@ bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
 
 ### Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Home Bin
 export PATH="$HOME/bin:$PATH"

@@ -1,0 +1,4 @@
+# Displays network load
+[net-traffic]
+interval=repeat
+min_width=190
