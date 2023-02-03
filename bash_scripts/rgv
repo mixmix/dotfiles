@@ -1,0 +1,3 @@
+#! /bin/sh
+
+rg -l $1 $2 | xargs vim +/$1
