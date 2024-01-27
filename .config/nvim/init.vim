@@ -40,7 +40,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Plug 'scrooloose/syntastic'
   "Plug 'sheerun/vim-polyglot'
   "Plug 'slim-template/vim-slim'
-  Plug 'w0rp/ale'
+  Plug 'dense-analysis/ale'
   Plug 'rust-lang/rust.vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -223,10 +223,10 @@ nmap <leader>n :NvimTreeToggle<CR>
 
 
 "stop me using the arrow keys :P
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+" map <up> <nop>
+" map <down> <nop>
+" map <left> <nop>
+" map <right> <nop>
 
 " run the current file with node
 nmap ` :!clear && node % <CR>

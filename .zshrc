@@ -261,3 +261,5 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 ### Go
 # export PATH=$PATH:/usr/local/go/bin
 
+### Gradle (android)
+export PATH=$PATH:/opt/gradle/gradle-8.1/bin
