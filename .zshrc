@@ -246,11 +246,18 @@ export PATH=$PATH:$HOME/.cargo/bin
 # To configure your current shell run source $HOME/.cargo/env
 
 ### Android ###
-# export ANDROID_HOME=$HOME/Android/Sdk
-# export PATH=$PATH:$ANDROID_HOME/emulator
-# export PATH=$PATH:$ANDROID_HOME/tools
-# export PATH=$PATH:$ANDROID_HOME/tools/bin
-# export PATH=$PATH:$ANDROID_HOME/platform-tools
+export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_NDK_HOME=$ANDROID_HOME/ndk
+
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/build-tools
+
+export ANDROID_SDK_ROOT=$ANDROID_HOME # legacy?
+
+### Gradle (android)
+export PATH=$PATH:/opt/gradle/gradle-8.1/bin
 
 # Alacritty
 fpath+=${ZDOTDIR:-~}/.zsh_functions
@@ -261,5 +268,10 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 ### Go
 # export PATH=$PATH:/usr/local/go/bin
 
-### Gradle (android)
-export PATH=$PATH:/opt/gradle/gradle-8.1/bin
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+### Vue
+export VUE_EDITOR=vim

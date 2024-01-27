@@ -25,44 +25,34 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'vim-airline/vim-airline-themes'
 
   " UI
-  "Plug 'tpope/vim-fugitive'
-  "Plug 'airblade/vim-gitgutter'
-  Plug 'lewis6991/gitsigns.nvim'
+  Plug 'lewis6991/gitsigns.nvim', { 'tag': 'v0.6' }
 
   Plug 'scrooloose/nerdcommenter'
   "Plug 'altercation/vim-colors-solarized'
 
-  "syntax / language related
+  "Language related
   Plug 'pangloss/vim-javascript'
   Plug 'posva/vim-vue'
   Plug 'jparise/vim-graphql'
-  " Plug 'leafgarland/typescript-vim'
-  " Plug 'scrooloose/syntastic'
+  "Plug 'leafgarland/typescript-vim'
+  "Plug 'scrooloose/syntastic'
   "Plug 'sheerun/vim-polyglot'
   "Plug 'slim-template/vim-slim'
   Plug 'dense-analysis/ale'
   Plug 'rust-lang/rust.vim'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+  " > remember to run e.g. :CocInstall coc-rust-analyzer
+  Plug 'Olical/conjure'
 
-  " remember to run e.g. :CocInstall coc-rust-analyzer
-
-  "navigation-files
+  "Navigation-files
   " Plug 'nvim-tree/nvim-web-devicons'
-  Plug 'nvim-tree/nvim-tree.lua'
+  Plug 'nvim-tree/nvim-tree.lua', { 'commit': '949913f1860eb85024fa1967dbd89ac797777b0d' }
   " Plug 'scrooloose/nerdtree'
   " Plug 'wincent/command-t'
   " Plug 'christoomey/vim-tmux-navigator'
 
   Plug 'junegunn/goyo.vim'
-
-  "navigation-text
-  "Plug 'easymotion/vim-easymotion'
-  "Plug 'justinmk/vim-sneak'
-
-  "ruby
-  "Plug 'vim-ruby/vim-ruby'
-  "Plugin 'tpope/vim-rails'
-call plug#end()            " required
+call plug#end()
 
 :lua require('gitsigns').setup()
 :lua << EOF
