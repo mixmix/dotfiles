@@ -25,7 +25,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'vim-airline/vim-airline-themes'
 
   " UI
-  Plug 'lewis6991/gitsigns.nvim', { 'tag': 'v0.6' }
+  Plug 'lewis6991/gitsigns.nvim', { 'tag': 'v0.5' } " TODO
 
   Plug 'scrooloose/nerdcommenter'
   "Plug 'altercation/vim-colors-solarized'
@@ -39,14 +39,18 @@ call plug#begin('~/.local/share/nvim/plugged')
   "Plug 'sheerun/vim-polyglot'
   "Plug 'slim-template/vim-slim'
   Plug 'w0rp/ale'
-  Plug 'rust-lang/rust.vim'
+
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-  " > remember to run e.g. :CocInstall coc-rust-analyzer
-  Plug 'Olical/conjure'
+  " TODO, install clients:
+  " :CocInstall coc-tsserver
+  " :CocInstall coc-rust-analyzer
+
+  " Plug 'rust-lang/rust.vim'
+  " Plug 'Olical/conjure'
 
   "Navigation-files
   " Plug 'nvim-tree/nvim-web-devicons'
-  Plug 'nvim-tree/nvim-tree.lua', { 'commit': '949913f1860eb85024fa1967dbd89ac797777b0d' }
+  Plug 'nvim-tree/nvim-tree.lua', { 'tag': 'compat-nvim-0.7' } "TODO
   " Plug 'scrooloose/nerdtree'
   " Plug 'wincent/command-t'
   " Plug 'christoomey/vim-tmux-navigator'
@@ -58,52 +62,51 @@ call plug#end()
 :lua << EOF
   require('nvim-tree').setup({
     renderer = {
-      highlight_opened_files = "all",
+      -- highlight_opened_files = "all",
       icons = {
         webdev_colors = false,
         git_placement = "after",
-        show = {
-          file = false,
-          folder = true,
-          folder_arrow = true,
-          git = true,
-        },
-        glyphs = {
-          default = "",
-          symlink = "",
-          bookmark = "",
-          folder = {
-            arrow_closed = ">",
-            arrow_open = "",
-            default = "",
-            open = "",
-            empty = "",
-            empty_open = "",
-            symlink = "",
-            symlink_open = "",
-          },
-          git = {
-            unstaged = "✗",
-            staged = "✓",
-            unmerged = "",
-            renamed = "➜",
-            untracked = "★",
-            deleted = "",
-            ignored = "◌",
-          },
-        },
+        -- show = {
+        --   file = false,
+        --   folder = true,
+        --   folder_arrow = true,
+        --   git = true,
+        -- },
+        -- glyphs = {
+        --   default = "",
+        --   symlink = "",
+        --   bookmark = "",
+        --   folder = {
+        --     arrow_closed = ">",
+        --     arrow_open = "",
+        --     default = "",
+        --     open = "",
+        --     empty = "",
+        --     empty_open = "",
+        --     symlink = "",
+        --     symlink_open = "",
+        --   },
+        --   git = {
+        --     unstaged = "✗",
+        --     staged = "✓",
+        --     unmerged = "",
+        --     renamed = "➜",
+        --     untracked = "★",
+        --     deleted = "",
+        --     ignored = "◌",
+        --   },
+        -- },
       },
-      special_files = { 
-        "README.md",
-        "readme.md",
-        "Cargo.toml",
-        "Makefile"
-      },
-      symlink_destination = true,
+      -- special_files = { 
+      --   "README.md",
+      --   "readme.md",
+      --   "Cargo.toml",
+      --   "Makefile"
+      -- },
+      -- symlink_destination = true,
     }
   })
 EOF
-" :lua require('nvim-tree').setup()
 
 " Use rg instead of grep
 "set grepprg=rg
@@ -182,57 +185,59 @@ set noswapfile
 " always show signcolumns
 set signcolumn=yes
 
-" # Shortcuts
-" let mapleader = "," "change the leader key from the default \ to comma
+"SHORTCUTS ===================================
+" = change the leader key from the default \ to comma
+" let mapleader = "," 
 
-nmap <leader>l :ALEToggle<CR>
-nmap <leader>f :ALEFix<CR>
-
-"COC shortcuts
-nmap <silent> f :RustFmt<CR>
-
+" = map jj to be equivalent to Esc
 imap jj <Esc>
-" map jj to be equivalent to Esc
 
-" NERDTree
-" nmap <leader>n :NERDTreeToggle<CR>
-" let NERDTreeHighlightCursorline=1
-" let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
-
-" auto open NERDTree if there's no file passed :
-" function! StartUp()
-"   if 0 == argc()
-"     NERDTree
-"   end
-" endfunction
+" = mouse scrolling!
+" :map <ScrollWheelUp> <C-E>
+" :map <ScrollWheelDown> <C-Y>
 
 " autocmd VimEnter * call StartUp()
 
-" NvimTree
+
+"NvimTree ====================================
 nmap <leader>n :NvimTreeToggle<CR>
 
 
-"stop me using the arrow keys :P
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+"Buffer shortcuts ============================
+map <C-l> :bn<CR>
+map <C-right> :bn<CR>
 
-" run the current file with node
+map <C-h> :bp<CR>
+map <C-left> :bp<CR>
+
+" = close a buffer
+nmap <leader> w :bd<CR>
+map <C-w> w :bd<CR>
+
+
+"NODE shortcuts ===============================
+" = run the current file with node
 nmap ` :!clear && node % <CR>
 " nmap ` :!clear && npm test<CR>
 " nmap 1 :!clear && node %<CR>
 
-"buffer  navigation
-map <C-right> :bn<CR>
-map <C-l> :bn<CR>
 
-map <C-left> :bp<CR>
-map <C-h> :bp<CR>
+"ALE shortcuts ================================
+nmap <leader>l :ALEToggle<CR>
+nmap <leader>f :ALEFix<CR>
 
-nmap <leader> w :bd<CR>
-map <C-w> w :bd<CR>
-" close a buffer
+
+"COC shortcuts ================================
+nmap <silent> f :RustFmt<CR>
+
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+
+"======
 
 " Yank text to the clipboard
 " you need to install a vim with +xterm_clipboard to ensure you can copy to

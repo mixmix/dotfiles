@@ -80,3 +80,12 @@ end
 
 echo "   => to complete setup, run :PlugInstall"
 ############################################################
+start "regolith"
+
+mkdir -p ~/.config/i3
+mkdir -p ~/.config/i3status
+
+
+end
+############################################################
+

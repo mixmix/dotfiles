@@ -246,7 +246,8 @@ export PATH=$PATH:$HOME/.cargo/bin
 # To configure your current shell run source $HOME/.cargo/env
 
 ### Android ###
-export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_HOME=$HOME/Android/Sdk # legacy ENV
+export ANDROID_SDK_ROOT=$ANDROID_HOME # modern
 export ANDROID_NDK_HOME=$ANDROID_HOME/ndk
 
 export PATH=$PATH:$ANDROID_HOME/platform-tools
@@ -254,7 +255,6 @@ export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/build-tools
 
-export ANDROID_SDK_ROOT=$ANDROID_HOME # legacy?
 
 # Alacritty
 fpath+=${ZDOTDIR:-~}/.zsh_functions
@@ -263,7 +263,7 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 # export PATH="$HOME/.radicle/bin:$PATH"
 
 ### Go
-# export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
