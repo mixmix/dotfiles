@@ -206,6 +206,11 @@ nmap <leader>n :NvimTreeToggle<CR>
 "Buffer shortcuts ============================
 map <C-l> :bn<CR>
 map <C-right> :bn<CR>
+"stop me using the arrow keys :P
+" map <up> <nop>
+" map <down> <nop>
+" map <left> <nop>
+" map <right> <nop>
 
 map <C-h> :bp<CR>
 map <C-left> :bp<CR>

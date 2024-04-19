@@ -256,6 +256,9 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/build-tools
 
 
+### Gradle (android)
+export PATH=$PATH:/opt/gradle/gradle-8.1/bin
+
 # Alacritty
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
@@ -264,6 +267,7 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 ### Go
 export PATH=$PATH:/usr/local/go/bin
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
