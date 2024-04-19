@@ -3,7 +3,7 @@
 
 -- Make line numbers default
 vim.wo.number = true
-vim.wo.relativenumber = true
+-- vim.wo.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = "a"
@@ -71,3 +71,7 @@ vim.o.foldlevelstart = 99
 -- vim.o.nostartofline = true
 
 -- vim.o.textwidth = 80
+
+-- Clipboard
+vim.opt.clipboard = 'unnamedplus'
+-- Sync clipboard between OS and Neovim. See `:help 'clipboard'`
