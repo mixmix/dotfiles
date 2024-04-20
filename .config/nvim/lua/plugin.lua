@@ -128,9 +128,14 @@ require("lazy").setup({
 		"EdenEast/nightfox.nvim",
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("carbonfox")
+			vim.cmd.colorscheme("nightfox")
 		end,
 	},
+
+	-- {
+	-- 	"patstockwell/vim-monokai-tasty",
+	-- 	priority = 1000,
+	-- },
 
 	{
 		-- Set lualine as statusline
@@ -158,6 +163,7 @@ require("lazy").setup({
 		version = "*",
 		config = require("plugin.telescope"),
 		dependencies = { "nvim-lua/plenary.nvim" },
+		-- TODO: change <Leader>\ to open search straight off?
 	},
 
 	{
@@ -230,15 +236,34 @@ require("lazy").setup({
 	-- 	},
 	-- },
 
+	-- {
+	-- 	"stevearc/oil.nvim",
+	-- 	-- file nav editor
+	-- 	opts = {
+	-- 		view_options = {
+	-- 			show_hidden = true,
+	-- 		},
+	-- 	},
+	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	-- },
 	{
-		"stevearc/oil.nvim",
-		-- file nav editor
-		opts = {
-			view_options = {
-				show_hidden = true,
-			},
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+			-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 		},
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("neo-tree").setup({
+				filesystem = {
+					follow_current_file = {
+						enabled = true,
+					},
+				},
+			})
+		end,
 	},
 
 	{

@@ -43,14 +43,16 @@ vim.keymap.set({ "n", "x" }, "q:", "")
 -- vim.keymap.set("n", "<C-f>", "", opts)
 
 -- MOVING LINES
--- move selected lines up one line
-vim.api.nvim_set_keymap("x", "<C-k>", ":m-2<CR>gv=gv", opts)
--- move selected lines down one line
-vim.api.nvim_set_keymap("x", "<C-j>", ":m'>+<CR>gv=gv", opts)
--- move current line up one line
+-- move current line up/down
 vim.api.nvim_set_keymap("n", "<C-k>", ":<C-u>m-2<CR>==", opts)
--- move current line down one line
 vim.api.nvim_set_keymap("n", "<C-j>", ":<C-u>m+<CR>==", opts)
+-- move selected lines up/down
+vim.api.nvim_set_keymap("x", "<C-k>", ":m-2<CR>gv=gv", opts)
+vim.api.nvim_set_keymap("x", "<C-j>", ":m'>+<CR>gv=gv", opts)
+
+-- BUFFERS
+vim.api.nvim_set_keymap("n", "<C-h>", ":bn<CR>", opts)
+vim.api.nvim_set_keymap("n", "<C-l>", ":bp<CR>", opts)
 
 -- BUFFERs as Tabs
 
@@ -113,9 +115,14 @@ vim.keymap.set("n", "<Leader>/", require("telescope.builtin").oldfiles, { desc =
 -- 	require("telescope").extensions.project.project()
 -- end, { desc = "[s]earch git [p]rojects" })
 
--- OIL
-vim.keymap.set("n", "<Leader>n", require("oil").open, { desc = "Open parent directory" })
--- TODO: side panel mode thingy
+-- File explorer (Oil)
+-- vim.keymap.set("n", "<Leader>n", require("oil").open, { desc = "Open parent directory" })
+-- vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
+vim.keymap.set("n", "<tab>", vim.cmd.Neotree, { desc = "Neotree" })
+local toggleTree = function()
+	vim.cmd.Neotree("toggle")
+end
+vim.keymap.set("n", "<Leader>n", toggleTree, { desc = "Neotree" })
 
 -- -- GIT
 -- vim.keymap.set("n", "<Leader>gg", "<cmd>lua _lazygit_toggle()<CR>", { desc = "lazy[g]it" })
@@ -135,16 +142,11 @@ vim.keymap.set("n", "<Leader>n", require("oil").open, { desc = "Open parent dire
 -- end
 
 -- open things
-vim.api.nvim_set_keymap(
-	"n",
-	"gx",
-	'<Cmd>call jobstart(["open", expand("<cfile>")])<CR>',
-	{
-    noremap = true,
-    silent = true,
-    desc = "open links (or other things) from the cursor you're at"
-  }
-)
+vim.api.nvim_set_keymap("n", "gx", '<Cmd>call jobstart(["open", expand("<cfile>")])<CR>', {
+	noremap = true,
+	silent = true,
+	desc = "open links (or other things) from the cursor you're at",
+})
 
 -- GITHUB BROWSER
 vim.api.nvim_set_keymap(
@@ -165,7 +167,6 @@ vim.api.nvim_set_keymap(
 	'<cmd>lua require"gitlinker".get_repo_url({action_callback = require"gitlinker.actions".open_in_browser})<cr>',
 	{ silent = true, desc = "[g]it [H]omepage" }
 )
-
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "K", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
