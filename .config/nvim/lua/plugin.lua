@@ -10,16 +10,16 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
-vim.opt.rtp:prepend(lazypath) ---@diagnostic disable: undefined-field
+vim.opt.rtp:prepend(lazypath) ---@diagnostic disable-line: undefined-field
 
 require("lazy").setup({
-	"tpope/vim-rhubarb",
-	-- "tpope/vim-sleuth",
 	"tpope/vim-surround",
+	"tpope/vim-abolish", -- find/replace on steroid
 	"tpope/vim-repeat", -- . action on tpope plugins
-	"tpope/vim-eunuch",
-	"tpope/vim-abolish",
-	"tpope/vim-fugitive",
+	"tpope/vim-fugitive", -- git stuff
+	"tpope/vim-rhubarb", -- github stuff
+	-- "tpope/vim-eunuch", -- UNIX command sugar
+	-- "tpope/vim-sleuth", -- auto tab stuff?
 	"farmergreg/vim-lastplace",
 	-- "Eandrju/cellular-automaton.nvim",
 
@@ -272,7 +272,7 @@ require("lazy").setup({
 					git_status = {
 						symbols = {
 							-- Change type
-							added = "", -- or "✚", redundant tho, as use git_status_colors
+							added = "✚", -- or "✚", redundant tho, as use git_status_colors
 							modified = "", -- or "", redundant tho, as use git_status_colors
 							deleted = "✖", -- this can only be used in the git_status source
 							renamed = "󰁕", -- this can only be used in the git_status source
@@ -287,6 +287,21 @@ require("lazy").setup({
 				},
 			})
 		end,
+	},
+
+	{
+		"romgrk/barbar.nvim",
+		dependencies = {
+			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+		},
+		init = function()
+			vim.g.barbar_auto_setup = false
+		end,
+		opts = {
+			auto_hide = true,
+		},
+		version = "^1.0.0", -- optional: only update when a new 1.x version is released
 	},
 
 	{
