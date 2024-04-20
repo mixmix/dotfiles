@@ -116,13 +116,13 @@ vim.keymap.set("n", "<Leader>/", require("telescope.builtin").oldfiles, { desc =
 -- end, { desc = "[s]earch git [p]rojects" })
 
 -- File explorer (Oil)
--- vim.keymap.set("n", "<Leader>n", require("oil").open, { desc = "Open parent directory" })
--- vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
-vim.keymap.set("n", "<tab>", vim.cmd.Neotree, { desc = "Neotree" })
 local toggleTree = function()
 	vim.cmd.Neotree("toggle")
 end
+vim.keymap.set("n", "<tab>", toggleTree, { desc = "Neotree" })
 vim.keymap.set("n", "<Leader>n", toggleTree, { desc = "Neotree" })
+-- vim.keymap.set("n", "<Leader>n", require("oil").open, { desc = "Open parent directory" })
+-- vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 
 -- -- GIT
 -- vim.keymap.set("n", "<Leader>gg", "<cmd>lua _lazygit_toggle()<CR>", { desc = "lazy[g]it" })

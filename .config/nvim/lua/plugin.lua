@@ -10,7 +10,7 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
-vim.opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath) ---@diagnostic disable: undefined-field
 
 require("lazy").setup({
 	"tpope/vim-rhubarb",
@@ -256,10 +256,33 @@ require("lazy").setup({
 			-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 		},
 		config = function()
+			vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+			vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+			vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
+			vim.fn.sign_define("DiagnosticSignHint", { text = "?", texthl = "DiagnosticSignHint" })
+
 			require("neo-tree").setup({
 				filesystem = {
 					follow_current_file = {
 						enabled = true,
+						leave_dirs_open = true,
+					},
+				},
+				default_component_configs = {
+					git_status = {
+						symbols = {
+							-- Change type
+							added = "", -- or "✚", redundant tho, as use git_status_colors
+							modified = "", -- or "", redundant tho, as use git_status_colors
+							deleted = "✖", -- this can only be used in the git_status source
+							renamed = "󰁕", -- this can only be used in the git_status source
+							-- Status type
+							untracked = "", -- or "",
+							ignored = "",
+							unstaged = "", -- or "󰄱",
+							staged = "",
+							conflict = "",
+						},
 					},
 				},
 			})
