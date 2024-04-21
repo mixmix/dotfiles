@@ -6,8 +6,8 @@ local opts = { noremap = true, silent = false }
 -- CLEAR HIGHLIGHTED SEARCH
 vim.keymap.set("n", "<esc>", vim.cmd.noh)
 
--- -- RENAMING
--- map("n", "<leader>R", ":%s/<C-r><C-w>/", opts)
+-- RENAMING
+map("n", "<leader>R", ":%s/<C-r><C-w>/", { desc = "[R]ename" })
 
 -- -- YANKY - clipboard history
 -- vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")

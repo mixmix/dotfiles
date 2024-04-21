@@ -15,13 +15,13 @@ vim.opt.rtp:prepend(lazypath) ---@diagnostic disable-line: undefined-field
 require("lazy").setup({
 	"tpope/vim-surround",
 	"tpope/vim-abolish", -- find/replace on steroid
-	"tpope/vim-repeat", -- . action on tpope plugins
 	"tpope/vim-fugitive", -- git stuff
 	"tpope/vim-rhubarb", -- github stuff
+	"tpope/vim-repeat", -- . action on tpope plugins
 	-- "tpope/vim-eunuch", -- UNIX command sugar
 	-- "tpope/vim-sleuth", -- auto tab stuff?
 	"farmergreg/vim-lastplace",
-	-- "Eandrju/cellular-automaton.nvim",
+	"Eandrju/cellular-automaton.nvim",
 
 	{
 		"mbbill/undotree",
@@ -70,9 +70,11 @@ require("lazy").setup({
 		},
 	},
 
+	-- Notifications
 	{
 		"j-hui/fidget.nvim",
 		tag = "legacy",
+		-- opts = {},
 	},
 
 	{
@@ -113,8 +115,9 @@ require("lazy").setup({
 				["<leader>l"] = { name = "+lsp" },
 				["<leader>h"] = { name = "+harpoon" },
 				["<leader>g"] = { name = "+git" },
-				["<leader>t"] = { name = "+tab" },
-				-- ["<leader>w"] = { name = "+workspace" },
+				-- ["<leader>t"] = { name = "+tab" },
+				["<leader>c"] = { name = "+comment" },
+				-- ["<leader>r"] = { name = "rename" }, -- doesn't work?
 			})
 		end,
 	},
@@ -178,8 +181,17 @@ require("lazy").setup({
 
 	{
 		"numToStr/Comment.nvim",
+		-- <leader>c
 		opts = {
 			ignore = "^$",
+			toggler = {
+				line = "<leader>cc",
+				block = "<leader>cb",
+			},
+			opleader = {
+				line = "<leader>cc",
+				block = "<leader>cb",
+			},
 		},
 	},
 
