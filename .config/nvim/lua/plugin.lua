@@ -89,13 +89,13 @@ require("lazy").setup({
 		config = require("plugin.cmp"),
 	},
 
-	{
-		"rafamadriz/friendly-snippets",
-		config = function()
-			require("luasnip.loaders.from_vscode").lazy_load()
-			require("luasnip").filetype_extend("ruby", { "rails" })
-		end,
-	},
+	-- {
+	-- 	"rafamadriz/friendly-snippets",
+	-- 	config = function()
+	-- 		require("luasnip.loaders.from_vscode").lazy_load()
+	-- 		require("luasnip").filetype_extend("ruby", { "rails" })
+	-- 	end,
+	-- },
 
 	{
 		"mhartington/formatter.nvim",
@@ -124,18 +124,25 @@ require("lazy").setup({
 		config = require("plugin.gitsigns"),
 	},
 
+	-- THEME
+	-- see also lualine theme
+	-- see https://github.com/rockerBOO/awesome-neovim?tab=readme-ov-file#colorscheme
 	{
-		-- THEME
-		"EdenEast/nightfox.nvim",
+		"folke/tokyonight.nvim",
+		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("nightfox")
+			vim.cmd.colorscheme("tokyonight-moon")
 		end,
 	},
 
 	-- {
-	-- 	"patstockwell/vim-monokai-tasty",
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	lazy = false,
 	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme("nightfox")
+	-- 	end,
 	-- },
 
 	{
@@ -144,8 +151,8 @@ require("lazy").setup({
 		-- See `:help lualine.txt`
 		opts = {
 			options = {
+				theme = "tokyonight-moon",
 				icons_enabled = false,
-				theme = "powerline",
 				component_separators = "|",
 				section_separators = "",
 			},
@@ -266,6 +273,18 @@ require("lazy").setup({
 					follow_current_file = {
 						enabled = true,
 						leave_dirs_open = true,
+					},
+					components = {
+						-- disable icons on files
+						icon = function(config, node, state)
+							if node.type == "file" then
+								return {
+									text = "·",
+									highlight = config.highlight,
+								}
+							end
+							return require("neo-tree.sources.common.components").icon(config, node, state)
+						end,
 					},
 				},
 				default_component_configs = {

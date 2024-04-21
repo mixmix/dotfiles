@@ -14,7 +14,7 @@ vim.o.tabstop = 2
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
-vim.o.wrap = false
+vim.o.wrap = true
 vim.o.autoindent = true
 vim.o.smartindent = true
 
@@ -59,9 +59,9 @@ vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 
 vim.opt.list = true
 vim.opt.listchars = {
-  tab = "»·",
-  trail = "·",
-  nbsp = "·",
+	tab = "»·",
+	trail = "·",
+	nbsp = "·",
 }
 
 -- open folds by default
@@ -73,5 +73,5 @@ vim.o.foldlevelstart = 99
 -- vim.o.textwidth = 80
 
 -- Clipboard
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = "unnamedplus"
 -- Sync clipboard between OS and Neovim. See `:help 'clipboard'`
