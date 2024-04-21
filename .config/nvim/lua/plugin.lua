@@ -107,11 +107,12 @@ require("lazy").setup({
 		config = function()
 			local wk = require("which-key")
 			wk.setup()
+			-- NOTE this pulls the `desc` attribute from existin mappings
 			wk.register({
-				["<leader>g"] = { name = "+git" },
+				["<leader>s"] = { name = "+search" },
 				["<leader>l"] = { name = "+lsp" },
 				["<leader>h"] = { name = "+harpoon" },
-				["<leader>s"] = { name = "+search" },
+				["<leader>g"] = { name = "+git" },
 				["<leader>t"] = { name = "+tab" },
 				-- ["<leader>w"] = { name = "+workspace" },
 			})
@@ -163,7 +164,6 @@ require("lazy").setup({
 		version = "*",
 		config = require("plugin.telescope"),
 		dependencies = { "nvim-lua/plenary.nvim" },
-		-- TODO: change <Leader>\ to open search straight off?
 	},
 
 	{
@@ -300,6 +300,10 @@ require("lazy").setup({
 		end,
 		opts = {
 			auto_hide = true,
+			highlight_inactive_file_icons = true,
+			sidebar_filetypes = {
+				["neo-tree"] = { event = "BufWipeout" },
+			},
 		},
 		version = "^1.0.0", -- optional: only update when a new 1.x version is released
 	},
