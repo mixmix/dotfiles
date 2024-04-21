@@ -128,13 +128,30 @@ require("lazy").setup({
 	-- see also lualine theme
 	-- see https://github.com/rockerBOO/awesome-neovim?tab=readme-ov-file#colorscheme
 	{
-		"folke/tokyonight.nvim",
+		"rose-pine/neovim",
+		name = "rose-pine",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("tokyonight-moon")
+			require("rose-pine").setup({
+				variant = "moon",
+
+				styles = {
+					italic = false,
+				},
+			})
+			vim.cmd.colorscheme("rose-pine-moon")
 		end,
 	},
+
+	--  {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme("tokyonight-moon")
+	-- 	end,
+	-- },
 
 	-- {
 	-- 	"EdenEast/nightfox.nvim",
@@ -151,7 +168,7 @@ require("lazy").setup({
 		-- See `:help lualine.txt`
 		opts = {
 			options = {
-				theme = "tokyonight-moon",
+				-- theme = "rose-pine-moon",
 				icons_enabled = false,
 				component_separators = "|",
 				section_separators = "",
@@ -314,16 +331,24 @@ require("lazy").setup({
 			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
 			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
 		},
-		init = function()
-			vim.g.barbar_auto_setup = false
+		-- init = function()
+		-- 	vim.g.barbar_auto_setup = false
+		-- end,
+		config = function()
+			require("barbar").setup({
+				auto_hide = true,
+				highlight_inactive_file_icons = true,
+				sidebar_filetypes = {
+					["neo-tree"] = { event = "BufWipeout" },
+				},
+				icons = {
+					filetype = {
+						-- disable icons
+						enabled = false,
+					},
+				},
+			})
 		end,
-		opts = {
-			auto_hide = true,
-			highlight_inactive_file_icons = true,
-			sidebar_filetypes = {
-				["neo-tree"] = { event = "BufWipeout" },
-			},
-		},
 		version = "^1.0.0", -- optional: only update when a new 1.x version is released
 	},
 
