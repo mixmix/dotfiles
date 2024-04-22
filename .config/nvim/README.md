@@ -6,6 +6,10 @@
 cargo install stylua
 ```
 
+```bash
+npm i -g @fsouza/prettierd eslint_d
+```
+
 ## Guide
 
 - init.lua : home, calls other ones

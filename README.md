@@ -9,8 +9,9 @@
     - set up ssh keys
 
 - [NeoVim](https://github.com/neovim/neovim)
-  - link : `.config/nvim/init.vim`
-  - [vim-plug](https://github.com/junegunn/vim-plug), `:PlugInstall`
+  - may need to be "unstable" ppp repo
+  - link : `.config/nvim
+  - `cargo install stylua`
   - install `gnome-tweaks` to change CAPS > Esc (if using gnome)
 
 - [Alacritty](https://alacritty.org/)
@@ -24,7 +25,10 @@
 
 - regolith linux : https://regolith-desktop.com/
 
-## Laptop : T440s
+
+## Laptop T14s > current
+
+## Laptop T440s > previous
 
 • Intel Core i7-4600U Processor( 2.10GHz 1600MHz 4MB)
 • 14.0" FHD IPS AntiGlare LED Backlight 1920x1080
@@ -79,7 +83,7 @@ gui tools
 - https://github.com/powerline/powerline
 - [Widdershin](https://github.com/Widdershin/dotfiles)
 - rbenv
-  
+
 ## Older tools
 
 i3
@@ -93,17 +97,15 @@ Vim
   - `update-alternatives --list vim` check which version of vim you have installed
     - found using vim-gtk worked ok, but was verion 7
   - `vim --version` check what current version of vim was built with
-  - Commant-T ruby version: 
+  - Commant-T ruby version:
     - `~/.vim/bundle/Command-T/ruby/command-t`
     - something like : rbenv install new ruby, `ruby extconf.rb`, `make`
 
 ## Old notes from Xubuntu
 
   - [Powerline fonts install](https://powerline.readthedocs.org/en/latest/installation/linux.html#fontconfig)
-  - note font driectories in Xubuntu are : 
+  - note font driectories in Xubuntu are :
     - `/usr/share/fonts/X11/misc` : where you install font
     - `/etc/fonts/conf.avail` : install font .conf here then symlink to conf.d folder
   - I also deleted the symlink for the `70-no-bitmap-fonts.conf`
   - [remap caps keys  in xubuntu](http://askubuntu.com/questions/149971/how-do-you-remap-a-key-to-the-caps-lock-key-in-xubuntu)
-  
-  

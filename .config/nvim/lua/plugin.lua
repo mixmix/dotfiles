@@ -21,7 +21,15 @@ require("lazy").setup({
 	-- "tpope/vim-eunuch", -- UNIX command sugar
 	-- "tpope/vim-sleuth", -- auto tab stuff?
 	"farmergreg/vim-lastplace",
-	"Eandrju/cellular-automaton.nvim",
+	-- "Eandrju/cellular-automaton.nvim",
+
+	{
+		"folke/neoconf.nvim", -- :Neoconf - configure local / global settings
+		lazy = false,
+		config = function()
+			require("neoconf").setup({})
+		end,
+	},
 
 	{
 		"mbbill/undotree",
@@ -57,8 +65,8 @@ require("lazy").setup({
 		end,
 	},
 
+	-- LSP Configuration & Plugins
 	{
-		-- LSP Configuration & Plugins
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
@@ -77,8 +85,8 @@ require("lazy").setup({
 		-- opts = {},
 	},
 
+	-- Autocompletion
 	{
-		-- Autocompletion
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
@@ -102,6 +110,7 @@ require("lazy").setup({
 	{
 		"mhartington/formatter.nvim",
 		config = require("plugin.formatter"),
+		-- see plugin/formatter.lua
 	},
 
 	{
@@ -341,11 +350,8 @@ require("lazy").setup({
 		"romgrk/barbar.nvim",
 		dependencies = {
 			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
-			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+			-- "nvim-tree/nvim-web-devicons",
 		},
-		-- init = function()
-		-- 	vim.g.barbar_auto_setup = false
-		-- end,
 		config = function()
 			require("barbar").setup({
 				auto_hide = true,
@@ -390,7 +396,6 @@ require("lazy").setup({
 	--     })
 	--   end,
 	-- },
-
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
