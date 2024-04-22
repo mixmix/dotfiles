@@ -306,6 +306,10 @@ require("lazy").setup({
 			vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
 			vim.fn.sign_define("DiagnosticSignHint", { text = "?", texthl = "DiagnosticSignHint" })
 
+			local test_file_pattern = "%.test%.m?j?c?t?s$"
+			local file_icon = "·"
+			local test_icon = "  "
+
 			require("neo-tree").setup({
 				filesystem = {
 					follow_current_file = {
@@ -313,11 +317,10 @@ require("lazy").setup({
 						leave_dirs_open = true,
 					},
 					components = {
-						-- disable icons on files
 						icon = function(config, node, state)
 							if node.type == "file" then
 								return {
-									text = "·",
+									text = (node.name:match(test_file_pattern) and test_icon) or file_icon,
 									highlight = config.highlight,
 								}
 							end
@@ -354,7 +357,7 @@ require("lazy").setup({
 		},
 		config = function()
 			require("barbar").setup({
-				auto_hide = true,
+				-- auto_hide = true,
 				highlight_inactive_file_icons = true,
 				sidebar_filetypes = {
 					["neo-tree"] = { event = "BufWipeout" },
@@ -396,6 +399,49 @@ require("lazy").setup({
 	--     })
 	--   end,
 	-- },
+
+	{
+		"folke/zen-mode.nvim",
+		opts = {
+			window = {
+				backdrop = 1, -- 0.95
+				width = 120, -- width of the Zen window
+				height = 0.9, -- height of the Zen window
+				-- by default, no options are changed for the Zen window
+				-- uncomment any of the options below, or add other vim.wo options you want to apply
+				options = {
+					-- signcolumn = "no", -- disable signcolumn
+					number = false, -- disable number column
+					-- relativenumber = false, -- disable relative numbers
+					-- cursorline = false, -- disable cursorline
+					-- cursorcolumn = false, -- disable cursor column
+					-- foldcolumn = "0", -- disable fold column
+					-- list = false, -- disable whitespace characters
+				},
+			},
+			plugins = {
+				-- disable some global vim options (vim.o...)
+				-- comment the lines to not apply the options
+				options = {
+					enabled = true,
+					ruler = false, -- disables the ruler text in the cmd line area
+					showcmd = false, -- disables the command in the last line of the screen
+					-- you may turn on/off statusline in zen mode by setting 'laststatus'
+					-- statusline will be shown only if 'laststatus' == 3
+					laststatus = 0, -- turn off the statusline in zen mode
+				},
+				gitsigns = { enabled = false }, -- disables git signs
+				-- this will change the font size on alacritty when in zen mode
+				-- requires  Alacritty Version 0.10.0 or higher
+				-- uses `alacritty msg` subcommand to change font size
+				-- alacritty = {
+				-- 	enabled = false,
+				-- 	font = "14", -- font size
+				-- },
+			},
+		},
+	},
+
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
