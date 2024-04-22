@@ -316,6 +316,15 @@ require("lazy").setup({
 						enabled = true,
 						leave_dirs_open = true,
 					},
+					filtered_items = {
+						visible = true,
+						hide_by_pattern = {
+							"*.test.js",
+							"*.test.mjs",
+							"*.test.cjs",
+							"*.test.ts",
+						},
+					},
 					components = {
 						icon = function(config, node, state)
 							if node.type == "file" then
