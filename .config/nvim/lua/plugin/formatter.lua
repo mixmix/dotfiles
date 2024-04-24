@@ -56,8 +56,8 @@ return function()
 			},
 			typescript = {
 				ft.typescript.eslint_d,
-				ft.typescript.prettier,
-				-- ft.typescript.prettierd,
+				-- ft.typescript.prettier,
+				ft.typescript.prettierd,
 			},
 			typescriptreact = {
 				ft.typescriptreact.eslint_d,

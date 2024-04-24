@@ -6,6 +6,9 @@ local opts = { noremap = true, silent = false }
 -- CLEAR HIGHLIGHTED SEARCH
 vim.keymap.set("n", "<esc>", vim.cmd.noh)
 
+-- FORMAT
+map("n", "<leader>f", ":FormatWrite<CR>", { desc = "[f]ormat + write" })
+
 -- RENAMING
 map("n", "<leader>R", ":%s/<C-r><C-w>/", { desc = "[R]ename" })
 
