@@ -104,9 +104,10 @@ source $ZSH/oh-my-zsh.sh
 # alias tmux="tmux -2"
 # alias tmux="TERM=xterm-256color tmux"
 # alias mygrep="grep -rinsI"
-alias magic="echo '\n\e[37m  (ﾉ´ヮ´)ﾉ*:･ﾟ✧\e[0m\n'"
+alias ssb='cd ~/projects/SSBC'
 alias ahau="cd ~/projects/AHAU/ahau && echo '\n\e[37m  Āhau\e[0m\n'"
 alias smat="cd ~/projects/SMAT/network-ui"
+alias magic="echo '\n\e[37m  (ﾉ´ヮ´)ﾉ*:･ﾟ✧\e[0m\n'"
 
 alias dev="npm run dev"
 alias lint="npm run lint"
@@ -117,18 +118,43 @@ alias today='vim ~/Documents/journal/$(date -I).md'
 # alias useful="cat /home/mixmix/Desktop/useful\ commands | less"
 # alias vuseful="vim /home/mixmix/Desktop/useful\ commands"
 
-alias ssb='cd ~/projects/SSBC'
-alias pb='cd ~/projects/SSBC/patchbay'
-
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit"
 alias gpo="git pull origin"
-alias gpom="git pull origin master"
 alias gco="git checkout"
-alias gcom="git checkout master"
-alias gdom="git diff origin/master"
 alias gfo="git fetch origin"
+# TODO: generalise "get-root-branch"
+gpom() {
+  if [ `git branch | grep master` ]; then
+    git pull origin master
+  elif [ `git branch | grep main` ]; then
+    git pull origin main
+  else
+    echo "no main/master branch found"
+    exit 1
+  fi
+}
+gcom() {
+  if [ `git branch | grep master` ]; then
+    git checkout master
+  elif [ `git branch | grep main` ]; then
+    git checkout main
+  else
+    echo "no main/master branch found"
+    exit 1
+  fi
+}
+gdom() {
+  if [ `git branch | grep master` ]; then
+    git diff origin/master
+  elif [ `git branch | grep main` ]; then
+    git diff origin/main
+  else
+    echo "no main/master branch found"
+    exit 1
+  fi
+}
 alias gg="git log --pretty=oneline --abbrev-commit --graph --decorate"
 alias gga="git log --pretty=oneline --abbrev-commit --graph --decorate --all"
 alias gtrash="git status --short | xargs trash"
