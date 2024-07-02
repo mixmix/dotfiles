@@ -125,36 +125,21 @@ alias gpo="git pull origin"
 alias gco="git checkout"
 alias gfo="git fetch origin"
 # TODO: generalise "get-root-branch"
-gpom() {
-  if [ `git branch | grep master` ]; then
-    git pull origin master
-  elif [ `git branch | grep main` ]; then
-    git pull origin main
-  else
-    echo "no main/master branch found"
-    exit 1
-  fi
+#
+getPrimaryBranch () {
+  echo $(ls .git/refs/heads | grep -e main -e master | head -n 1)
 }
-gcom() {
-  if [ `git branch | grep master` ]; then
-    git checkout master
-  elif [ `git branch | grep main` ]; then
-    git checkout main
-  else
-    echo "no main/master branch found"
-    exit 1
-  fi
+gpom () {
+  git pull origin `getPrimaryBranch`
+}
+gcom () {
+  git checkout `getPrimaryBranch`
 }
 gdom() {
-  if [ `git branch | grep master` ]; then
-    git diff origin/master
-  elif [ `git branch | grep main` ]; then
-    git diff origin/main
-  else
-    echo "no main/master branch found"
-    exit 1
-  fi
+  BRANCH=`getPrimaryBranch`
+  git diff "origin/$BRANCH"
 }
+
 alias gg="git log --pretty=oneline --abbrev-commit --graph --decorate"
 alias gga="git log --pretty=oneline --abbrev-commit --graph --decorate --all"
 alias gtrash="git status --short | xargs trash"
