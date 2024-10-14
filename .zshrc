@@ -104,9 +104,10 @@ source $ZSH/oh-my-zsh.sh
 # alias tmux="tmux -2"
 # alias tmux="TERM=xterm-256color tmux"
 # alias mygrep="grep -rinsI"
-alias magic="echo '\n\e[37m  (ﾉ´ヮ´)ﾉ*:･ﾟ✧\e[0m\n'"
+alias ssb='cd ~/projects/SSBC'
 alias ahau="cd ~/projects/AHAU/ahau && echo '\n\e[37m  Āhau\e[0m\n'"
 alias smat="cd ~/projects/SMAT/network-ui"
+alias magic="echo '\n\e[37m  (ﾉ´ヮ´)ﾉ*:･ﾟ✧\e[0m\n'"
 
 alias dev="npm run dev"
 alias lint="npm run lint"
@@ -117,18 +118,28 @@ alias today='vim ~/Documents/journal/$(date -I).md'
 # alias useful="cat /home/mixmix/Desktop/useful\ commands | less"
 # alias vuseful="vim /home/mixmix/Desktop/useful\ commands"
 
-alias ssb='cd ~/projects/SSBC'
-alias pb='cd ~/projects/SSBC/patchbay'
-
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit"
 alias gpo="git pull origin"
-alias gpom="git pull origin master"
 alias gco="git checkout"
-alias gcom="git checkout master"
-alias gdom="git diff origin/master"
 alias gfo="git fetch origin"
+# TODO: generalise "get-root-branch"
+#
+getPrimaryBranch () {
+  echo $(ls .git/refs/heads | grep -e main -e master | head -n 1)
+}
+gpom () {
+  git pull origin `getPrimaryBranch`
+}
+gcom () {
+  git checkout `getPrimaryBranch`
+}
+gdom() {
+  BRANCH=`getPrimaryBranch`
+  git diff "origin/$BRANCH"
+}
+
 alias gg="git log --pretty=oneline --abbrev-commit --graph --decorate"
 alias gga="git log --pretty=oneline --abbrev-commit --graph --decorate --all"
 alias gtrash="git status --short | xargs trash"
