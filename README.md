@@ -25,6 +25,11 @@
 
 - regolith linux : https://regolith-desktop.com/
 
+- firefox: fullscreen video only covers window (not whole screen)
+  - `about:config`
+  - `full-screen-api.ignore-widgets` => `true`
+
+
 
 ## Laptop T14s > current
 

@@ -41,15 +41,17 @@ function linkup () {
   ln -fs $src_path $dest_dir 
 }
 
+function linkupDir () {
+  # $1 is assumed to be the path relative to ~
+  local dest_path="${HOME}/$1"
+  local src_path="${dotfiles}/$1"
+
+  ln -fs $src_path $dest_path
+}
+
 
 ############################################################
 start "zsh"
-
-cd ~
-if [ ! -e ~/.oh-my-zsh ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-step
 
 backup_initial .zshrc
 step
@@ -62,23 +64,17 @@ end
 start "neovim"
 
 cd ~
-mkdir -p ~/.config/nvim
+mkdir -p ~/.config
 
-backup_initial .config/nvim/init.vim
+backup_initial .config/nvim
 step
 
-linkup .config/nvim/init.vim
-step
-
-if [ ! -e ~/.local/share/nvim/site/autoload/plug.vim ]; then
-  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-fi
+linkupDir .config/nvim
 step
 
 end
 
-echo "   => to complete setup, run :PlugInstall"
+echo "   => to complete setup, run :Lazy"
 ############################################################
 start "regolith"
 

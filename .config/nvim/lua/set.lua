@@ -73,5 +73,6 @@ vim.o.foldlevelstart = 99
 -- vim.o.textwidth = 80
 
 -- Clipboard
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
+
 -- Sync clipboard between OS and Neovim. See `:help 'clipboard'`
