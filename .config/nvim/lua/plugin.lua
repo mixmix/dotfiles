@@ -119,14 +119,14 @@ require("lazy").setup({
 			local wk = require("which-key")
 			wk.setup()
 			-- NOTE this pulls the `desc` attribute from existin mappings
-			wk.register({
-				["<leader>s"] = { name = "+search" },
-				["<leader>l"] = { name = "+lsp" },
-				["<leader>h"] = { name = "+harpoon" },
-				["<leader>g"] = { name = "+git" },
-				-- ["<leader>t"] = { name = "+tab" },
-				["<leader>c"] = { name = "+comment" },
-				-- ["<leader>r"] = { name = "rename" }, -- doesn't work?
+      wk.add({
+        { "<leader>s", group = "search" },
+        { "<leader>l", group = "lsp" },
+        { "<leader>h", group = "harpoon" },
+        { "<leader>g", group = "git" },
+        -- { "<leader>t", group = "tab" },
+        { "<leader>c", group = "comment" },
+        -- { "<leader>r", group = "rename" }, -- doesn't work?
 			})
 		end,
 	},

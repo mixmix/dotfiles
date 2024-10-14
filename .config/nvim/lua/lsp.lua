@@ -10,7 +10,7 @@ local on_attach_overrides = {
 	-- vim.keymap.set("n", "<C-/>", rt.code_action_group.code_action_group, { buffer = bufnr })
 	-- -- vim.keymap.set("n", "<leader>rr", rt.run, { buffer = bufnr })
 	-- end,
-	tsserver = function(_, bufnr)
+	ts_ls = function(_, bufnr)
 		vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { remap = true, buffer = bufnr })
 		-- HACK? - talk to Dan about why this was needed?
 	end,
@@ -52,7 +52,7 @@ local servers = {
 	-- clangd = {},
 	jsonls = {},
 	-- gopls = {},
-	tsserver = {},
+	ts_ls = {},
 	volar = {}, -- vue: tsserver + volar don't play nice together. disable tsserver in Vue projects
 	yamlls = {},
 	-- elixirls = {
@@ -156,7 +156,7 @@ mason_lspconfig.setup_handlers({
 				},
 				on_attach = function()
 					for _, server in ipairs(vim.lsp.get_active_clients()) do
-						if server.name == "tsserver" then
+						if server.name == "ts_ls" then
 							print("stopped tsserver - volar takeover mode")
 							vim.lsp.get_client_by_id(server.id).stop()
 						end
