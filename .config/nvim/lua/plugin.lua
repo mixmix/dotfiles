@@ -510,17 +510,52 @@ require("lazy").setup({
 		dependencies = { "nvim-treesitter", "nvim-cmp" }, -- if a completion plugin is using tabs load it before
 	},
 
+  -- MARKDOWN
   {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
-    init = function()
-      vim.g.mkdp_auto_start = 1
-      vim.g.mkdp_auto_close = 0
-      vim.g.mkdp_combine_preview = 1
-      vim.g.mkdp_echo_preview_url = 1
-      -- vim.g.mkdp_open_to_the_world = 1
-    end,
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons'
+      -- 'echasnovski/mini.nvim'
+      -- 'echasnovski/mini.icons'
+    },
+    opts = {
+      heading = {
+        enabled = true,
+        position = "inline",
+        sign = false,
+        icons = {},
+      },
+
+      bullet = {
+        icons = { '●', '○', '◆', '◇' },
+      },
+
+      checkbox = {
+        unchecked = {
+            -- Replaces '[ ]' of 'task_list_marker_unchecked'.
+            -- icon = '󰄱 ',
+            icon = '( )'
+        },
+        checked = {
+            -- Replaces '[X]' of 'task_list_marker_checked'.
+            -- icon = '󰱒 ',
+            icon = '(✓)'
+        },
+      },
+    },
   }
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  --   ft = { "markdown" },
+  --   build = function() vim.fn["mkdp#util#install"]() end,
+  --   init = function()
+  --     vim.g.mkdp_auto_start = 1
+  --     vim.g.mkdp_auto_close = 0
+  --     vim.g.mkdp_combine_preview = 1
+  --     vim.g.mkdp_echo_preview_url = 1
+  --     -- vim.g.mkdp_open_to_the_world = 1
+  --   end,
+  -- }
 }, {})
