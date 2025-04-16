@@ -543,8 +543,11 @@ require("lazy").setup({
             icon = '(✓)'
         },
       },
+      pipe_table = {
+        cell = 'overlay',
+      },
     },
-  }
+  },
   -- {
   --   "iamcco/markdown-preview.nvim",
   --   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -558,4 +561,10 @@ require("lazy").setup({
   --     -- vim.g.mkdp_open_to_the_world = 1
   --   end,
   -- }
+  {
+    'dhruvasagar/vim-table-mode',
+		config = function()
+	     vim.cmd.TableModeEnable()
+    end
+  }
 }, {})
