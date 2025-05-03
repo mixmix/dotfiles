@@ -46,7 +46,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- SERVER CONFIGURATIONS
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
 local servers = {
 	-- clangd = {},
@@ -81,6 +81,9 @@ local servers = {
 			},
 		},
 	},
+  rust_analyzer = {
+
+  }
 }
 
 -- Setup neovim lua configuration
@@ -114,27 +117,6 @@ mason_lspconfig.setup_handlers({
 			on_attach = on_attach,
 			init_options = {
 				provideFormatter = false,
-			},
-		})
-	end,
-	rust_analyzer = function()
-		require("rust-tools").setup({
-			server = {
-				capabilities = capabilities,
-				on_attach = on_attach,
-				settings = {
-					["rust-analyzer"] = {
-						diagnostics = {
-							disabled = {
-								-- FIXME: temporarily disable clippy::needless_return, fix for #tokio::main macro
-								"needless_return",
-							},
-						},
-						checkOnSave = {
-							command = "clippy",
-						},
-					},
-				},
 			},
 		})
 	end,

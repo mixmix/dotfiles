@@ -73,7 +73,7 @@ require("lazy").setup({
 			"williamboman/mason-lspconfig.nvim",
 			"folke/neodev.nvim",
 			"j-hui/fidget.nvim",
-			"simrat39/rust-tools.nvim",
+			-- "simrat39/rust-tools.nvim",
 			"mfussenegger/nvim-dap",
 		},
 	},
